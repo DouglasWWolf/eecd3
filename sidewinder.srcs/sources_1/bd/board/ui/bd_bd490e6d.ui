@@ -1,0 +1,47 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-427,-283",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS_IN1 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port AXIS_IN2 -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port M_AXIS -pg 1 -lvl 3 -x 540 -y 100 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_aresetn -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace inst axi_stream_switch -pg 1 -lvl 1 -x 160 -y 60 -defaultsOSRD -pinDir AXIS_IN1 left -pinY AXIS_IN1 0L -pinDir AXIS_IN2 left -pinY AXIS_IN2 20L -pinDir AXIS_OUT right -pinY AXIS_OUT 40R -pinDir clk left -pinY clk 40L
+preplace inst axis_register_slice -pg 1 -lvl 2 -x 410 -y 100 -swap {0 1 2 3 4 5 6 7 9 8} -defaultsOSRD -pinDir S_AXIS left -pinY S_AXIS 0L -pinDir M_AXIS right -pinY M_AXIS 0R -pinDir aclk left -pinY aclk 80L -pinDir aresetn left -pinY aresetn 60L
+preplace netloc system_clock_IBUF_OUT 1 0 2 20 180 N
+preplace netloc aresetn_1 1 0 2 NJ 160 NJ
+preplace netloc axi_request_proxy_AXIS_OUT 1 0 1 NJ 60
+preplace netloc event_reporter_0_AXIS_OUT 1 0 1 NJ 80
+preplace netloc Conn1 1 2 1 N 100
+preplace netloc axi_stream_switch_AXIS_OUT 1 1 1 N 100
+levelinfo -pg 1 0 160 410 540
+pagesize -pg 1 -db -bbox -sgen -120 0 650 240
+",
+   "No Loops_ScaleFactor":"1.0",
+   "No Loops_TopLeft":"-432,-259",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS_IN1 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port AXIS_IN2 -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port M_AXIS -pg 1 -lvl 3 -x 550 -y 100 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_aresetn -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace inst axi_stream_switch -pg 1 -lvl 1 -x 160 -y 80 -defaultsOSRD
+preplace inst axis_register_slice -pg 1 -lvl 2 -x 420 -y 100 -defaultsOSRD
+preplace netloc system_clock_IBUF_OUT 1 0 2 20 160 300J
+preplace netloc aresetn_1 1 0 2 NJ 170 310J
+preplace netloc axi_request_proxy_AXIS_OUT 1 0 1 NJ 60
+preplace netloc event_reporter_0_AXIS_OUT 1 0 1 NJ 80
+preplace netloc Conn1 1 2 1 N 100
+preplace netloc axi_stream_switch_AXIS_OUT 1 1 1 N 80
+levelinfo -pg 1 0 160 420 550
+pagesize -pg 1 -db -bbox -sgen -120 0 660 190
+"
+}
+

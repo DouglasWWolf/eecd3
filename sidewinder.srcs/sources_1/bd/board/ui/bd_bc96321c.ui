@@ -1,0 +1,69 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-403,-190",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS_STREAM_RX -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port M_AXI_PROXY -pg 1 -lvl 3 -x 850 -y 270 -defaultsOSRD
+preplace port port-id_stream_clk -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace port port-id_slow_clk -pg 1 -lvl 0 -x 0 -y 790 -defaultsOSRD
+preplace port port-id_row_complete_out -pg 1 -lvl 3 -x 850 -y 430 -defaultsOSRD
+preplace port port-id_stream_aresetn -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace port port-id_row_requestor_idle -pg 1 -lvl 0 -x 0 -y 450 -defaultsOSRD
+preplace port port-id_underflow_out -pg 1 -lvl 3 -x 850 -y 710 -defaultsOSRD
+preplace port port-id_job_complete_out -pg 1 -lvl 3 -x 850 -y 570 -defaultsOSRD
+preplace inst row_complete_cdc -pg 1 -lvl 2 -x 710 -y 430 -swap {0 2 1 3} -defaultsOSRD -pinDir src_clk left -pinY src_clk 0L -pinDir dest_clk left -pinY dest_clk 40L -pinDir src_pulse left -pinY src_pulse 20L -pinDir dest_pulse right -pinY dest_pulse 0R
+preplace inst axi_request_fifo -pg 1 -lvl 2 -x 710 -y 270 -defaultsOSRD -pinDir S_AXIS left -pinY S_AXIS 0L -pinDir M_AXIS right -pinY M_AXIS 0R -pinDir s_axis_aresetn left -pinY s_axis_aresetn 20L -pinDir s_axis_aclk left -pinY s_axis_aclk 40L -pinDir m_axis_aclk left -pinY m_axis_aclk 60L
+preplace inst ila_rx_data_402 -pg 1 -lvl 1 -x 280 -y 70 -swap {0 1 2 3 4 5 9 10 7 8 6 11} -defaultsOSRD -pinDir SLOT_0_AXIS left -pinY SLOT_0_AXIS 40L -pinDir clk left -pinY clk 60L -pinBusDir probe0 right -pinBusY probe0 60R -pinBusDir probe1 right -pinBusY probe1 80R -pinBusDir probe2 right -pinBusY probe2 20R -pinBusDir probe3 right -pinBusY probe3 40R -pinBusDir probe4 right -pinBusY probe4 0R -pinDir resetn left -pinY resetn 80L
+preplace inst underflow_cdc -pg 1 -lvl 2 -x 710 -y 710 -swap {0 2 1 3} -defaultsOSRD -pinDir src_clk left -pinY src_clk 0L -pinDir dest_clk left -pinY dest_clk 40L -pinDir src_pulse left -pinY src_pulse 20L -pinDir dest_pulse right -pinY dest_pulse 0R
+preplace inst axis_consumer -pg 1 -lvl 1 -x 280 -y 270 -swap {0 1 2 3 4 5 6 7 8 9 17 16 15 10 11 12 13 14} -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir AXI_REQ right -pinY AXI_REQ 0R -pinDir clk left -pinY clk 20L -pinDir row_requestor_idle left -pinY row_requestor_idle 180L -pinDir underflow_out right -pinY underflow_out 460R -pinDir job_complete_out right -pinY job_complete_out 320R -pinDir row_complete right -pinY row_complete 180R -pinDir lvds_data right -pinY lvds_data 20R -pinBusDir mb_per_sec right -pinBusY mb_per_sec 40R -pinBusDir rows_rcvd right -pinBusY rows_rcvd 60R -pinBusDir elapsed_secs right -pinBusY elapsed_secs 80R -pinBusDir errors right -pinBusY errors 100R
+preplace inst job_complete_cdc -pg 1 -lvl 2 -x 710 -y 570 -swap {0 2 1 3} -defaultsOSRD -pinDir src_clk left -pinY src_clk 0L -pinDir dest_clk left -pinY dest_clk 40L -pinDir src_pulse left -pinY src_pulse 20L -pinDir dest_pulse right -pinY dest_pulse 0R
+preplace netloc axis_consumer_lvds_data 1 1 1 470 150n
+preplace netloc axis_consumer_mb_per_sec 1 1 1 490 130n
+preplace netloc axis_consumer_underflow_out 1 1 1 N 730
+preplace netloc dest_clk_1 1 0 2 NJ 790 590
+preplace netloc elapsed_secs 1 1 1 530 90n
+preplace netloc errors 1 1 1 550 70n
+preplace netloc qsfp_data_user_clk_out 1 0 2 40 210 570
+preplace netloc row_complete 1 1 1 N 450
+preplace netloc row_complete_cdc_dest_pulse 1 2 1 NJ 430
+preplace netloc row_requestor_idle_1 1 0 1 NJ 450
+preplace netloc rows_rcvd 1 1 1 510 110n
+preplace netloc s_axis_aresetn_1 1 0 2 60 10 590
+preplace netloc underflow_cdc_dest_pulse 1 2 1 NJ 710
+preplace netloc axis_consumer_job_complete_out 1 1 1 N 590
+preplace netloc job_complete_cdc_dest_pulse 1 2 1 N 570
+preplace netloc AXIS1_1 1 0 1 80 110n
+preplace netloc Conn1 1 2 1 NJ 270
+preplace netloc axis_consumer_AXI_REQ 1 1 1 N 270
+levelinfo -pg 1 0 280 710 850
+pagesize -pg 1 -db -bbox -sgen -190 0 1030 810
+",
+   "No Loops_ScaleFactor":"0.844444",
+   "No Loops_TopLeft":"-401,0",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_stream_clk -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace port port-id_row_complete_clk -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
+preplace port port-id_row_complete -pg 1 -lvl 3 -x 610 -y 290 -defaultsOSRD
+preplace port port-id_stream_aresetn -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace inst row_complete_cdc -pg 1 -lvl 2 -x 470 -y 290 -defaultsOSRD
+preplace inst axi_request_fifo -pg 1 -lvl 2 -x 470 -y 140 -defaultsOSRD
+preplace inst axis_consumer -pg 1 -lvl 1 -x 190 -y 120 -defaultsOSRD
+preplace netloc dest_clk_1 1 0 2 NJ 40 340
+preplace netloc qsfp_data_user_clk_out 1 0 2 40 50 330
+preplace netloc row_complete 1 1 1 320 130n
+preplace netloc row_complete_cdc_dest_pulse 1 2 1 N 290
+preplace netloc s_axis_aresetn_1 1 0 2 NJ 20 350J
+preplace netloc AXIS1_1 1 0 1 NJ 110
+preplace netloc axis_consumer_AXI_REQ 1 1 1 N 110
+levelinfo -pg 1 0 190 470 610
+pagesize -pg 1 -db -bbox -sgen -180 0 760 370
+"
+}
+0
