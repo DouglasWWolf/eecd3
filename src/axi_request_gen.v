@@ -88,6 +88,9 @@ module axi_request_gen
     wire        ashi_ridle;     // Output: 1 = Read state machine is idle
     //==========================================================================
 
+    // This is the maximum number of requests we can have "in flight"
+    localparam MAX_OUTSTANDING_REQUESTS = 16;
+
     // The state of our two state machines
     reg[2:0] read_state, write_state;
 
@@ -214,7 +217,7 @@ module axi_request_gen
 
     // We send out a new request anytime "requests_outstanding" drops below
     // our threshold
-    assign AXIS_TX_TVALID = (rsm_state == 1) & (requests_outstanding < 8);
+    assign AXIS_TX_TVALID = (rsm_state == 1) & (requests_outstanding < MAX_OUTSTANDING_REQUESTS);
 
     //==========================================================================
     always @(posedge clk) begin
