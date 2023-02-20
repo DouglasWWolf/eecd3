@@ -84,6 +84,12 @@ localparam CH0     = 1;
 localparam CH1     = 2;
 localparam BOTH    = 3;
 
+// The types of packets we know how to handle
+localparam PKT_TYPE_ROW_DATA = 0;
+localparam PKT_TYPE_AXI      = 1;
+localparam PKT_TYPE_TESTP    = 3;
+
+
 // axis_tready controls the TREADY lines of both input channels
 reg[1:0] axis_tready = BOTH;
 assign AXIS_CH0_TREADY = axis_tready[0];
@@ -143,6 +149,10 @@ reg[31:0] seconds;
 
 // State of the consumer state machine
 reg[1:0] csm_state;
+localparam CSM_WAIT_FOR_PACKET = 0;
+localparam CSM_WAIT_ROW_DATA   = 1;
+localparam CSM_WAIT_ROW_FOOTER = 2;
+localparam CSM_TOSS_PACKET     = 3;
 
 // We're going to watch for a low-going edge on "row_requestor_idle"
 reg old_row_requestor_idle = 1;
@@ -244,31 +254,33 @@ always @(posedge clk) begin
     end else case(csm_state)
         
         // Waiting for the first data-cycle of a packet
-        0:  if (rx_valid) begin
+        CSM_WAIT_FOR_PACKET:
+            
+            if (rx_valid) begin
             
                 // If this cycle is an AXI read/write request...
-                if (packet_type == 1) begin
-                    axi_data_out   <= axi_data_in;  // Fill in the data-word in AXIS_IN_TDATA
-                    axi_addr_out   <= axi_addr_in;  // Fill in the AXI address in AXIS_IN_TDATA
-                    axi_mode_out   <= axi_mode_in;  // Assume this is an AXI write-request
-                    AXI_REQ_TVALID <= 1;            // Emit this AXI read/write request
+                if (packet_type == PKT_TYPE_AXI) begin
+                    axi_data_out   <= axi_data_in;      // Fill in the data-word in AXIS_IN_TDATA
+                    axi_addr_out   <= axi_addr_in;      // Fill in the AXI address in AXIS_IN_TDATA
+                    axi_mode_out   <= axi_mode_in;      // Assume this is an AXI write-request
+                    AXI_REQ_TVALID <= 1;                // Emit this AXI read/write request
+                end
+
+                else if (packet_type == PKT_TYPE_ROW_DATA) begin
+                    idle_watchdog      <= UNDERFLOW_TIMEOUT;
+                    data_cycle_counter <= 1;
+                    csm_state          <= CSM_WAIT_ROW_DATA;
                 end
 
                 else begin
-
-                    // Receiving data means we're no longer idle
-                    idle_watchdog <= UNDERFLOW_TIMEOUT;
-
-                    // Next data-cycle is the first cycle of row-data
-                    data_cycle_counter <= 1;
-
-                    // Go wait for the rest of the data-packet to arrive
-                    csm_state <= 1;
+                    csm_state <= CSM_TOSS_PACKET;
                 end
             end
         
         // Here we're waiting for all the data-cycles containing row-data to arrive
-        1:  if (rx_valid) begin
+        CSM_WAIT_ROW_DATA:
+        
+            if (rx_valid) begin
     
                 // Accumulate a total of data-bytes received
                 bytes_per_sec <= bytes_per_sec + DATA_BYTES;
@@ -278,7 +290,7 @@ always @(posedge clk) begin
 
                 // If this is the last data-cycle for this row, go wait for the row-footer to arrive
                 if (data_cycle_counter == DATA_CYCLES_PER_ROW) begin
-                    csm_state <= 2;
+                    csm_state <= CSM_WAIT_ROW_FOOTER;
                 end 
 
                 // Keep track of how many data-cycles we've recieved
@@ -286,11 +298,20 @@ always @(posedge clk) begin
             end
 
         // Here we're waiting for the row-trailer data-cycle
-        2:  if (rx_valid) begin
+        CSM_WAIT_ROW_FOOTER:
+
+            if (rx_valid) begin
                 rows_rcvd    <= rows_rcvd + 1;
                 elapsed_secs <= seconds;
                 row_complete <= 1;
-                csm_state    <= 0;
+                csm_state    <= CSM_WAIT_FOR_PACKET;
+            end
+
+        // If we get here we are throwing away an unrecognized packet
+        CSM_TOSS_PACKET:
+        
+            if (rx_valid & rx_last) begin
+                csm_state <= CSM_WAIT_FOR_PACKET;
             end
 
     endcase
