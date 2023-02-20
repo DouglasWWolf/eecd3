@@ -316,11 +316,19 @@ end
 // running a bulk data-integrity test using a specially formatted dataset
 //===============================================================================================
 
-// Every 32-bit value on the RX bus will be one of these values
-wire[31:0] value1 = rx1_data[31:0];
-wire[31:0] value2 = rx1_data[31:0] ^ 32'hFFFF_FFFF;
-wire[31:0] value3 = rx1_data[31:0] ^ 32'hAAAA_AAAA;
-wire[31:0] value4 = rx1_data[31:0] ^ 32'h5555_5555;
+// Every 32-bit value on the RX0 bus will be one of these values
+wire[31:0] value01 = rx0_data[31:0];
+wire[31:0] value02 = rx0_data[31:0] ^ 32'hFFFF_FFFF;
+wire[31:0] value03 = rx0_data[31:0] ^ 32'hAAAA_AAAA;
+wire[31:0] value04 = rx0_data[31:0] ^ 32'h5555_5555;
+
+
+// Every 32-bit value on the RX1 bus will be one of these values
+wire[31:0] value11 = rx1_data[31:0];
+wire[31:0] value12 = rx1_data[31:0] ^ 32'hFFFF_FFFF;
+wire[31:0] value13 = rx1_data[31:0] ^ 32'hAAAA_AAAA;
+wire[31:0] value14 = rx1_data[31:0] ^ 32'h5555_5555;
+
 
 always @(posedge clk) begin
     
@@ -329,21 +337,37 @@ always @(posedge clk) begin
 
     // Keep track of how many row-data data-cycles have an error
     if (csm_state == 1 && rx_valid) begin
-        if (rx1_data[ 63: 32] != value2) errors <= errors + 1;
-        if (rx1_data[ 95: 64] != value3) errors <= errors + 1;
-        if (rx1_data[127: 96] != value4) errors <= errors + 1;
-        if (rx1_data[159:128] != value1) errors <= errors + 1;
-        if (rx1_data[191:160] != value2) errors <= errors + 1;
-        if (rx1_data[223:192] != value3) errors <= errors + 1;
-        if (rx1_data[255:224] != value4) errors <= errors + 1;
-        if (rx1_data[287:256] != value1) errors <= errors + 1;
-        if (rx1_data[319:288] != value2) errors <= errors + 1;
-        if (rx1_data[351:320] != value3) errors <= errors + 1;
-        if (rx1_data[383:352] != value4) errors <= errors + 1;
-        if (rx1_data[415:384] != value1) errors <= errors + 1;
-        if (rx1_data[447:416] != value2) errors <= errors + 1;
-        if (rx1_data[479:448] != value3) errors <= errors + 1;
-        if (rx1_data[511:480] != value4) errors <= errors + 1;
+        if (rx0_data[ 63: 32] != value02) errors <= errors + 1;
+        if (rx0_data[ 95: 64] != value03) errors <= errors + 1;
+        if (rx0_data[127: 96] != value04) errors <= errors + 1;
+        if (rx0_data[159:128] != value01) errors <= errors + 1;
+        if (rx0_data[191:160] != value02) errors <= errors + 1;
+        if (rx0_data[223:192] != value03) errors <= errors + 1;
+        if (rx0_data[255:224] != value04) errors <= errors + 1;
+        if (rx0_data[287:256] != value01) errors <= errors + 1;
+        if (rx0_data[319:288] != value02) errors <= errors + 1;
+        if (rx0_data[351:320] != value03) errors <= errors + 1;
+        if (rx0_data[383:352] != value04) errors <= errors + 1;
+        if (rx0_data[415:384] != value01) errors <= errors + 1;
+        if (rx0_data[447:416] != value02) errors <= errors + 1;
+        if (rx0_data[479:448] != value03) errors <= errors + 1;
+        if (rx0_data[511:480] != value04) errors <= errors + 1;
+
+        if (rx1_data[ 63: 32] != value12) errors <= errors + 1;
+        if (rx1_data[ 95: 64] != value13) errors <= errors + 1;
+        if (rx1_data[127: 96] != value14) errors <= errors + 1;
+        if (rx1_data[159:128] != value11) errors <= errors + 1;
+        if (rx1_data[191:160] != value12) errors <= errors + 1;
+        if (rx1_data[223:192] != value13) errors <= errors + 1;
+        if (rx1_data[255:224] != value14) errors <= errors + 1;
+        if (rx1_data[287:256] != value11) errors <= errors + 1;
+        if (rx1_data[319:288] != value12) errors <= errors + 1;
+        if (rx1_data[351:320] != value13) errors <= errors + 1;
+        if (rx1_data[383:352] != value14) errors <= errors + 1;
+        if (rx1_data[415:384] != value11) errors <= errors + 1;
+        if (rx1_data[447:416] != value12) errors <= errors + 1;
+        if (rx1_data[479:448] != value13) errors <= errors + 1;
+        if (rx1_data[511:480] != value14) errors <= errors + 1;
     end
 
 end

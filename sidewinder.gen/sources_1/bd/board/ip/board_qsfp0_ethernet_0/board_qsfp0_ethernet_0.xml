@@ -10394,11 +10394,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Feb 15 23:38:53 UTC 2023</spirit:value>
+            <spirit:value>Sun Feb 19 10:32:06 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:248de261</spirit:value>
+            <spirit:value>9:2f2a713b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -30430,7 +30430,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="float">
         <spirit:name>C_INS_LOSS_NYQ</spirit:name>
-        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_INS_LOSS_NYQ">12</spirit:value>
+        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_INS_LOSS_NYQ">20</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_RX_EQ_MODE</spirit:name>
@@ -31369,7 +31369,7 @@
       <spirit:name>INS_LOSS_NYQ</spirit:name>
       <spirit:displayName>RX Insertion Loss at Nyquist (dB)</spirit:displayName>
       <spirit:description>Indicate the transmitter to receiver insertion loss at the Nyquist frequency, in dB</spirit:description>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.INS_LOSS_NYQ" spirit:order="465" spirit:minimum="0">12</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.INS_LOSS_NYQ" spirit:order="465" spirit:minimum="0">20</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_EQ_MODE</spirit:name>
@@ -31801,6 +31801,7 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CMAC_CORE_SELECT" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GT_GROUP_SELECT" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GT_REF_CLK_FREQ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.INS_LOSS_NYQ" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.LANE10_GT_LOC" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.LANE1_GT_LOC" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.LANE2_GT_LOC" xilinx:valueSource="user"/>

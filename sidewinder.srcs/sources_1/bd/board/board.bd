@@ -28,8 +28,7 @@
         "qsfp1_ethernet": "",
         "tx1_reset_inverter": "",
         "tx1_width_converter": "",
-        "rx_tx_enable": "",
-        "tx0_ila": ""
+        "rx_tx_enable": ""
       },
       "request_button": "",
       "consumer": {
@@ -38,7 +37,6 @@
         "ila_rx_data_322": "",
         "underflow_cdc": "",
         "job_complete_cdc": "",
-        "row_req_idle_cdc": "",
         "rx_stream_ila": "",
         "axis_consumer": ""
       },
@@ -51,7 +49,6 @@
       },
       "unused_tied_low": "",
       "event_reporter": "",
-      "system_ila_0": "",
       "row_request_generator": ""
     },
     "interface_ports": {
@@ -364,6 +361,9 @@
               "GT_REF_CLK_FREQ": {
                 "value": "322.265625"
               },
+              "INS_LOSS_NYQ": {
+                "value": "20"
+              },
               "NUM_LANES": {
                 "value": "4x25"
               },
@@ -578,6 +578,9 @@
               },
               "GT_REF_CLK_FREQ": {
                 "value": "322.265625"
+              },
+              "INS_LOSS_NYQ": {
+                "value": "20"
               },
               "NUM_LANES": {
                 "value": "4x25"
@@ -813,39 +816,6 @@
                 "direction": "O"
               }
             }
-          },
-          "tx0_ila": {
-            "vlnv": "xilinx.com:ip:system_ila:1.1",
-            "xci_name": "board_system_ila_0_7",
-            "xci_path": "ip/board_system_ila_0_7/board_system_ila_0_7.xci",
-            "inst_hier_path": "qsfp_data/tx0_ila",
-            "parameters": {
-              "C_MON_TYPE": {
-                "value": "INTERFACE"
-              },
-              "C_NUM_MONITOR_SLOTS": {
-                "value": "1"
-              },
-              "C_SLOT_0_APC_EN": {
-                "value": "0"
-              },
-              "C_SLOT_0_AXI_DATA_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_0_AXI_TRIG_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_0_INTF_TYPE": {
-                "value": "xilinx.com:interface:axis_rtl:1.0"
-              }
-            },
-            "interface_ports": {
-              "SLOT_0_AXIS": {
-                "mode": "Monitor",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-              }
-            }
           }
         },
         "interface_nets": {
@@ -871,27 +841,13 @@
             "interface_ports": [
               "ROW_REQ_TX",
               "row_request_clock_converter/S_AXIS"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              }
-            }
+            ]
           },
           "axis256_to_512_0_AXIS_TX": {
             "interface_ports": [
               "qsfp0_ethernet/axis_tx",
-              "tx0_width_converter/AXIS_TX",
-              "tx0_ila/SLOT_0_AXIS"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              },
-              "MARK_DEBUG": {
-                "value": "true"
-              }
-            }
+              "tx0_width_converter/AXIS_TX"
+            ]
           },
           "axis256_to_512_1_AXIS_TX": {
             "interface_ports": [
@@ -981,8 +937,7 @@
             "ports": [
               "qsfp0_ethernet/gt_txusrclk2",
               "row_request_clock_converter/m_axis_aclk",
-              "tx0_width_converter/clk",
-              "tx0_ila/clk"
+              "tx0_width_converter/clk"
             ]
           },
           "qsfp0_ethernet_stat_rx_status": {
@@ -1082,8 +1037,7 @@
             "ports": [
               "tx0_reset_inverter/Res",
               "row_request_clock_converter/m_axis_aresetn",
-              "rx_tx_enable/resetn",
-              "tx0_ila/resetn"
+              "rx_tx_enable/resetn"
             ]
           },
           "tx1_reset_inverter_Res": {
@@ -1323,26 +1277,6 @@
               },
               "SIM_ASSERT_CHK": {
                 "value": "false"
-              }
-            }
-          },
-          "row_req_idle_cdc": {
-            "vlnv": "xilinx.com:ip:xpm_cdc_gen:1.0",
-            "xci_name": "board_underflow_cdc_0",
-            "xci_path": "ip/board_underflow_cdc_0/board_underflow_cdc_0.xci",
-            "inst_hier_path": "consumer/row_req_idle_cdc",
-            "parameters": {
-              "CDC_TYPE": {
-                "value": "xpm_cdc_single"
-              },
-              "RST_USED": {
-                "value": "false"
-              },
-              "SIM_ASSERT_CHK": {
-                "value": "false"
-              },
-              "WIDTH": {
-                "value": "1"
               }
             }
           },
@@ -1785,8 +1719,7 @@
               "row_complete_cdc/dest_clk",
               "axi_request_fifo/m_axis_aclk",
               "underflow_cdc/dest_clk",
-              "job_complete_cdc/dest_clk",
-              "row_req_idle_cdc/src_clk"
+              "job_complete_cdc/dest_clk"
             ]
           },
           "elapsed_secs": {
@@ -1845,7 +1778,6 @@
               "ila_rx_data_322/clk",
               "underflow_cdc/src_clk",
               "job_complete_cdc/src_clk",
-              "row_req_idle_cdc/dest_clk",
               "rx_stream_ila/clk",
               "axis_consumer/clk"
             ]
@@ -1862,16 +1794,10 @@
               "row_complete_out"
             ]
           },
-          "row_req_idle_cdc_dest_out": {
-            "ports": [
-              "row_req_idle_cdc/dest_out",
-              "axis_consumer/row_requestor_idle"
-            ]
-          },
           "row_requestor_idle_1": {
             "ports": [
               "row_requestor_idle",
-              "row_req_idle_cdc/src_in"
+              "axis_consumer/row_requestor_idle"
             ]
           },
           "rows_rcvd": {
@@ -2823,39 +2749,6 @@
           }
         }
       },
-      "system_ila_0": {
-        "vlnv": "xilinx.com:ip:system_ila:1.1",
-        "xci_name": "board_system_ila_0_9",
-        "xci_path": "ip/board_system_ila_0_9/board_system_ila_0_9.xci",
-        "inst_hier_path": "system_ila_0",
-        "parameters": {
-          "C_MON_TYPE": {
-            "value": "INTERFACE"
-          },
-          "C_NUM_MONITOR_SLOTS": {
-            "value": "1"
-          },
-          "C_SLOT_0_APC_EN": {
-            "value": "0"
-          },
-          "C_SLOT_0_AXI_DATA_SEL": {
-            "value": "1"
-          },
-          "C_SLOT_0_AXI_TRIG_SEL": {
-            "value": "1"
-          },
-          "C_SLOT_0_INTF_TYPE": {
-            "value": "xilinx.com:interface:axis_rtl:1.0"
-          }
-        },
-        "interface_ports": {
-          "SLOT_0_AXIS": {
-            "mode": "Monitor",
-            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-          }
-        }
-      },
       "row_request_generator": {
         "vlnv": "xilinx.com:module_ref:axi_request_gen:1.0",
         "xci_name": "board_axi_request_gen_0_0",
@@ -3273,17 +3166,8 @@
       "row_request_generator_AXIS_TX": {
         "interface_ports": [
           "row_request_generator/AXIS_TX",
-          "qsfp_data/ROW_REQ_TX",
-          "system_ila_0/SLOT_0_AXIS"
-        ],
-        "hdl_attributes": {
-          "DEBUG": {
-            "value": "true"
-          },
-          "MARK_DEBUG": {
-            "value": "true"
-          }
-        }
+          "qsfp_data/ROW_REQ_TX"
+        ]
       },
       "smartconnect_0_M00_AXI": {
         "interface_ports": [
@@ -3384,7 +3268,6 @@
           "axi4lite_request_proxy/clk",
           "stream_switch/clk",
           "event_reporter/clk",
-          "system_ila_0/clk",
           "row_request_generator/clk"
         ]
       },
@@ -3398,7 +3281,6 @@
           "axi4lite_request_proxy/resetn",
           "stream_switch/aresetn",
           "event_reporter/resetn",
-          "system_ila_0/resetn",
           "row_request_generator/resetn"
         ]
       },
