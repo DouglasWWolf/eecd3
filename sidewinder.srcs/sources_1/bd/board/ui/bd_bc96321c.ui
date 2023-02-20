@@ -52,8 +52,8 @@ preplace netloc axis_consumer_AXI_REQ 1 2 1 N 310
 levelinfo -pg 1 0 120 470 930 1070
 pagesize -pg 1 -db -bbox -sgen -190 0 1250 850
 ",
-   "No Loops_ScaleFactor":"0.858824",
-   "No Loops_TopLeft":"-240,0",
+   "No Loops_ScaleFactor":"1.0",
+   "No Loops_TopLeft":"-136,0",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port AXIS -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD

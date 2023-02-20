@@ -20,7 +20,7 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "board_cmac_usplus_0_0_gt_rxusrclk2",
+            "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {

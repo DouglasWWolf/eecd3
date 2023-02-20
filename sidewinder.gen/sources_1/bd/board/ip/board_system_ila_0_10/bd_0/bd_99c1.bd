@@ -22,7 +22,7 @@
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "board_cmac_usplus_0_0_gt_rxusrclk2",
+            "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
@@ -81,7 +81,7 @@
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "board_cmac_usplus_0_0_gt_rxusrclk2",
+            "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
@@ -147,7 +147,7 @@
             "value": "resetn"
           },
           "CLK_DOMAIN": {
-            "value": "board_cmac_usplus_0_0_gt_rxusrclk2",
+            "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {

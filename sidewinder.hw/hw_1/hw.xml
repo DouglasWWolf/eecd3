@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.        -->
 
 <hwsession version="1" minor="2">
-  <device name="xczu19_0" gui_info="dashboard1=hw_ila_1[xczu19_0/hw_ila_1/Waveform=ILA_WAVE_1;xczu19_0/hw_ila_1/Capture Setup=ILA_CAPTURE_1;xczu19_0/hw_ila_1/Status=ILA_STATUS_1;xczu19_0/hw_ila_1/Settings=ILA_SETTINGS_1;xczu19_0/hw_ila_1/Trigger Setup=ILA_TRIGGER_1;],dashboard2=hw_ila_2[xczu19_0/hw_ila_2/Settings=ILA_SETTINGS_1;xczu19_0/hw_ila_2/Capture Setup=ILA_CAPTURE_1;xczu19_0/hw_ila_2/Status=ILA_STATUS_1;xczu19_0/hw_ila_2/Trigger Setup=ILA_TRIGGER_1;xczu19_0/hw_ila_2/Waveform=ILA_WAVE_1;],dashboard3=hw_ila_3[xczu19_0/hw_ila_3/Status=ILA_STATUS_1;xczu19_0/hw_ila_3/Waveform=ILA_WAVE_1;xczu19_0/hw_ila_3/Capture Setup=ILA_CAPTURE_1;xczu19_0/hw_ila_3/Settings=ILA_SETTINGS_1;xczu19_0/hw_ila_3/Trigger Setup=ILA_TRIGGER_1;]"/>
+  <device name="xczu19_0" gui_info="dashboard1=hw_ila_1[xczu19_0/hw_ila_1/Waveform=ILA_WAVE_1;xczu19_0/hw_ila_1/Capture Setup=ILA_CAPTURE_1;xczu19_0/hw_ila_1/Status=ILA_STATUS_1;xczu19_0/hw_ila_1/Settings=ILA_SETTINGS_1;xczu19_0/hw_ila_1/Trigger Setup=ILA_TRIGGER_1;],dashboard2=hw_ila_2[xczu19_0/hw_ila_2/Settings=ILA_SETTINGS_1;xczu19_0/hw_ila_2/Capture Setup=ILA_CAPTURE_1;xczu19_0/hw_ila_2/Status=ILA_STATUS_1;xczu19_0/hw_ila_2/Trigger Setup=ILA_TRIGGER_1;xczu19_0/hw_ila_2/Waveform=ILA_WAVE_1;]"/>
   <ObjectList object_type="hw_device" gui_info="">
     <Object name="xczu19_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/impl_1/board_wrapper.ltx"/>
@@ -30,7 +30,8 @@
     </Object>
   </ObjectList>
   <ObjectList object_type="hw_probe" gui_info="">
-    <Object name="board_i/consumer/rx_stream_ila/inst/probe2_1" gui_info="Trigger Setup=0"/>
+    <Object name="board_i/consumer/rx_stream_ila/inst/net_slot_0_axis_tvalid" gui_info="Trigger Setup=0"/>
+    <Object name="board_i/consumer/rx_stream_ila/inst/probe2_1" gui_info=""/>
     <Object name="board_i/qsfp_data/rx0_bad_packet_filter/system_ila_0/inst/net_slot_0_axis_tvalid" gui_info="Trigger Setup=0"/>
   </ObjectList>
   <ObjectList object_type="hw_sysmon" gui_info="">
@@ -980,7 +981,7 @@
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
-        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bR"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
@@ -991,7 +992,7 @@
         <Option Id="NAME.CUSTOM" value="slot_0 : RX_STREAM_CH0_1 : TVALID"/>
         <Option Id="NAME.SELECT" value="Custom"/>
         <Option Id="SOURCE" value="netlist"/>
-        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bR"/>
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
       </probeOptions>
       <nets>
@@ -2765,7 +2766,7 @@
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
-        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bR"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
@@ -2776,7 +2777,7 @@
         <Option Id="NAME.CUSTOM" value="axis_consumer_rx_valid"/>
         <Option Id="NAME.SELECT" value="Custom"/>
         <Option Id="SOURCE" value="netlist"/>
-        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bR"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
       </probeOptions>
       <nets>
@@ -2848,7 +2849,7 @@
         <net name="board_i/consumer/rx_stream_ila/inst/probe5_1"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq512&apos;hXXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq512&apos;hXXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX"/>
@@ -3380,7 +3381,7 @@
         <net name="board_i/qsfp_data/rx0_bad_packet_filter/system_ila_0/inst/net_slot_0_axis_tdata[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
@@ -3548,7 +3549,7 @@
         <net name="board_i/qsfp_data/rx0_bad_packet_filter/system_ila_0/inst/net_slot_0_axis_tvalid"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
@@ -3663,7 +3664,7 @@
         <net name="board_i/qsfp_data/rx0_bad_packet_filter/system_ila_0/inst/net_slot_1_axis_tvalid"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq512&apos;hXXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq512&apos;hXXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX"/>
@@ -4195,7 +4196,7 @@
         <net name="board_i/qsfp_data/rx0_bad_packet_filter/system_ila_0/inst/net_slot_2_axis_tdata[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
