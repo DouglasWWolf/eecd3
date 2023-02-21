@@ -18,7 +18,6 @@
         "rx0_axis_fifo": "",
         "rx1_axis_fifo": "",
         "event_clock_converter": "",
-        "axis_register_slice": "",
         "row_request_clock_converter": "",
         "ethernet_1": {
           "qsfp_ethernet": "",
@@ -38,10 +37,10 @@
       "consumer": {
         "row_complete_cdc": "",
         "axi_request_fifo": "",
-        "ila_rx_data_322": "",
         "underflow_cdc": "",
         "job_complete_cdc": "",
         "rx_stream_ila": "",
+        "ila_stats_322": "",
         "axis_consumer": ""
       },
       "axi_gpio_leds": "",
@@ -313,12 +312,6 @@
             "xci_path": "ip/board_axis_clock_converter_0_0/board_axis_clock_converter_0_0.xci",
             "inst_hier_path": "qsfp_data/event_clock_converter"
           },
-          "axis_register_slice": {
-            "vlnv": "xilinx.com:ip:axis_register_slice:1.1",
-            "xci_name": "board_axis_register_slice_0_1",
-            "xci_path": "ip/board_axis_register_slice_0_1/board_axis_register_slice_0_1.xci",
-            "inst_hier_path": "qsfp_data/axis_register_slice"
-          },
           "row_request_clock_converter": {
             "vlnv": "xilinx.com:ip:axis_clock_converter:1.1",
             "xci_name": "board_axis_clock_converter_1",
@@ -414,20 +407,6 @@
                   },
                   "USER_INTERFACE": {
                     "value": "AXIS"
-                  }
-                },
-                "addressing": {
-                  "memory_maps": {
-                    "s_axi": {
-                      "address_blocks": {
-                        "Reg": {
-                          "base_address": "0",
-                          "range": "64K",
-                          "width": "16",
-                          "usage": "register"
-                        }
-                      }
-                    }
                   }
                 }
               },
@@ -1237,19 +1216,13 @@
           "EVENT_STREAM_TX_1": {
             "interface_ports": [
               "EVENT_STREAM_TX",
-              "axis_register_slice/S_AXIS"
+              "event_clock_converter/S_AXIS"
             ]
           },
           "ROW_REQ_TX_1": {
             "interface_ports": [
               "ROW_REQ_TX",
               "row_request_clock_converter/S_AXIS"
-            ]
-          },
-          "axis_register_slice_0_M_AXIS": {
-            "interface_ports": [
-              "axis_register_slice/M_AXIS",
-              "event_clock_converter/S_AXIS"
             ]
           },
           "event_clock_converter_M_AXIS": {
@@ -1366,7 +1339,6 @@
             "ports": [
               "resetn_in",
               "event_clock_converter/s_axis_aresetn",
-              "axis_register_slice/aresetn",
               "row_request_clock_converter/s_axis_aresetn"
             ]
           },
@@ -1374,7 +1346,6 @@
             "ports": [
               "init_clk",
               "event_clock_converter/s_axis_aclk",
-              "axis_register_slice/aclk",
               "row_request_clock_converter/s_axis_aclk",
               "ethernet_1/init_clk",
               "ethernet_0/init_clk"
@@ -1461,7 +1432,7 @@
             "type": "rst",
             "direction": "I"
           },
-          "row_requestor_idle": {
+          "row_requestor_active": {
             "direction": "I"
           },
           "underflow_out": {
@@ -1500,83 +1471,6 @@
               },
               "IS_ACLK_ASYNC": {
                 "value": "1"
-              }
-            }
-          },
-          "ila_rx_data_322": {
-            "vlnv": "xilinx.com:ip:system_ila:1.1",
-            "xci_name": "board_system_ila_0_5",
-            "xci_path": "ip/board_system_ila_0_5/board_system_ila_0_5.xci",
-            "inst_hier_path": "consumer/ila_rx_data_322",
-            "parameters": {
-              "C_MON_TYPE": {
-                "value": "NATIVE"
-              },
-              "C_NUM_MONITOR_SLOTS": {
-                "value": "1"
-              },
-              "C_NUM_OF_PROBES": {
-                "value": "5"
-              },
-              "C_PROBE0_TYPE": {
-                "value": "0"
-              },
-              "C_PROBE1_TYPE": {
-                "value": "0"
-              },
-              "C_PROBE2_TYPE": {
-                "value": "0"
-              },
-              "C_PROBE3_TYPE": {
-                "value": "0"
-              },
-              "C_PROBE4_TYPE": {
-                "value": "0"
-              },
-              "C_PROBE5_TYPE": {
-                "value": "0"
-              },
-              "C_SLOT_0_APC_EN": {
-                "value": "0"
-              },
-              "C_SLOT_0_AXI_DATA_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_0_AXI_TRIG_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_0_INTF_TYPE": {
-                "value": "xilinx.com:interface:axis_rtl:1.0"
-              },
-              "C_SLOT_0_TYPE": {
-                "value": "0"
-              },
-              "C_SLOT_1_APC_EN": {
-                "value": "0"
-              },
-              "C_SLOT_1_AXI_DATA_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_1_AXI_TRIG_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_1_INTF_TYPE": {
-                "value": "xilinx.com:interface:axis_rtl:1.0"
-              },
-              "C_SLOT_1_TYPE": {
-                "value": "0"
-              },
-              "C_SLOT_2_APC_EN": {
-                "value": "0"
-              },
-              "C_SLOT_2_AXI_DATA_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_2_AXI_TRIG_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_2_INTF_TYPE": {
-                "value": "xilinx.com:interface:axis_rtl:1.0"
               }
             }
           },
@@ -1652,6 +1546,20 @@
               }
             }
           },
+          "ila_stats_322": {
+            "vlnv": "xilinx.com:ip:system_ila:1.1",
+            "xci_name": "board_system_ila_0_11",
+            "xci_path": "ip/board_system_ila_0_11/board_system_ila_0_11.xci",
+            "inst_hier_path": "consumer/ila_stats_322",
+            "parameters": {
+              "C_MON_TYPE": {
+                "value": "NATIVE"
+              },
+              "C_NUM_OF_PROBES": {
+                "value": "6"
+              }
+            }
+          },
           "axis_consumer": {
             "vlnv": "xilinx.com:module_ref:axis_consumer:1.0",
             "xci_name": "board_axis_consumer_0_0",
@@ -1681,7 +1589,7 @@
                     "value_src": "constant"
                   },
                   "TUSER_WIDTH": {
-                    "value": "0",
+                    "value": "1",
                     "value_src": "constant"
                   },
                   "HAS_TREADY": {
@@ -1726,6 +1634,10 @@
                     "physical_name": "AXIS_CH0_TLAST",
                     "direction": "I"
                   },
+                  "TUSER": {
+                    "physical_name": "AXIS_CH0_TUSER",
+                    "direction": "I"
+                  },
                   "TVALID": {
                     "physical_name": "AXIS_CH0_TVALID",
                     "direction": "I"
@@ -1754,7 +1666,7 @@
                     "value_src": "constant"
                   },
                   "TUSER_WIDTH": {
-                    "value": "0",
+                    "value": "1",
                     "value_src": "constant"
                   },
                   "HAS_TREADY": {
@@ -1797,6 +1709,10 @@
                   },
                   "TLAST": {
                     "physical_name": "AXIS_CH1_TLAST",
+                    "direction": "I"
+                  },
+                  "TUSER": {
+                    "physical_name": "AXIS_CH1_TUSER",
                     "direction": "I"
                   },
                   "TVALID": {
@@ -1892,7 +1808,7 @@
                   }
                 }
               },
-              "row_requestor_idle": {
+              "row_requestor_active": {
                 "direction": "I"
               },
               "underflow_out": {
@@ -1911,6 +1827,11 @@
                 "direction": "O"
               },
               "mb_per_sec": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "bad_packets": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
@@ -1940,7 +1861,7 @@
                 "left": "511",
                 "right": "0"
               },
-              "rx_last": {
+              "rx_tlast": {
                 "direction": "O",
                 "left": "1",
                 "right": "0"
@@ -1985,6 +1906,30 @@
           }
         },
         "nets": {
+          "axis_consumer_bad_packets": {
+            "ports": [
+              "axis_consumer/bad_packets",
+              "ila_stats_322/probe0"
+            ]
+          },
+          "axis_consumer_elapsed_secs": {
+            "ports": [
+              "axis_consumer/elapsed_secs",
+              "ila_stats_322/probe3"
+            ]
+          },
+          "axis_consumer_errors": {
+            "ports": [
+              "axis_consumer/errors",
+              "ila_stats_322/probe2"
+            ]
+          },
+          "axis_consumer_idle_out": {
+            "ports": [
+              "axis_consumer/idle_out",
+              "ila_stats_322/probe1"
+            ]
+          },
           "axis_consumer_job_complete_out": {
             "ports": [
               "axis_consumer/job_complete_out",
@@ -1997,19 +1942,11 @@
               "rx_stream_ila/probe5"
             ]
           },
-          "axis_consumer_mb_per_sec": {
+          "axis_consumer_rows_rcvd": {
             "ports": [
-              "axis_consumer/mb_per_sec",
-              "ila_rx_data_322/probe0"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              },
-              "MARK_DEBUG": {
-                "value": "true"
-              }
-            }
+              "axis_consumer/rows_rcvd",
+              "ila_stats_322/probe4"
+            ]
           },
           "axis_consumer_rx0_data": {
             "ports": [
@@ -2029,9 +1966,9 @@
               "rx_stream_ila/probe3"
             ]
           },
-          "axis_consumer_rx_last": {
+          "axis_consumer_rx_tlast": {
             "ports": [
-              "axis_consumer/rx_last",
+              "axis_consumer/rx_tlast",
               "rx_stream_ila/probe4"
             ]
           },
@@ -2056,52 +1993,16 @@
               "job_complete_cdc/dest_clk"
             ]
           },
-          "elapsed_secs": {
-            "ports": [
-              "axis_consumer/elapsed_secs",
-              "ila_rx_data_322/probe1"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              },
-              "MARK_DEBUG": {
-                "value": "true"
-              }
-            }
-          },
-          "errors": {
-            "ports": [
-              "axis_consumer/errors",
-              "ila_rx_data_322/probe3"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              },
-              "MARK_DEBUG": {
-                "value": "true"
-              }
-            }
-          },
-          "idle_out": {
-            "ports": [
-              "axis_consumer/idle_out",
-              "ila_rx_data_322/probe4"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              },
-              "MARK_DEBUG": {
-                "value": "true"
-              }
-            }
-          },
           "job_complete_cdc_dest_pulse": {
             "ports": [
               "job_complete_cdc/dest_pulse",
               "job_complete_out"
+            ]
+          },
+          "mb_per_sec": {
+            "ports": [
+              "axis_consumer/mb_per_sec",
+              "ila_stats_322/probe5"
             ]
           },
           "qsfp_data_user_clk_out": {
@@ -2109,10 +2010,10 @@
               "stream_clk",
               "row_complete_cdc/src_clk",
               "axi_request_fifo/s_axis_aclk",
-              "ila_rx_data_322/clk",
               "underflow_cdc/src_clk",
               "job_complete_cdc/src_clk",
               "rx_stream_ila/clk",
+              "ila_stats_322/clk",
               "axis_consumer/clk"
             ]
           },
@@ -2130,23 +2031,9 @@
           },
           "row_requestor_idle_1": {
             "ports": [
-              "row_requestor_idle",
-              "axis_consumer/row_requestor_idle"
+              "row_requestor_active",
+              "axis_consumer/row_requestor_active"
             ]
-          },
-          "rows_rcvd": {
-            "ports": [
-              "axis_consumer/rows_rcvd",
-              "ila_rx_data_322/probe2"
-            ],
-            "hdl_attributes": {
-              "DEBUG": {
-                "value": "true"
-              },
-              "MARK_DEBUG": {
-                "value": "true"
-              }
-            }
           },
           "s_axis_aresetn_1": {
             "ports": [
@@ -3435,7 +3322,7 @@
           "row_complete_in": {
             "direction": "I"
           },
-          "idle_out": {
+          "active": {
             "direction": "O"
           },
           "button": {
@@ -3609,10 +3496,10 @@
           "row_request_generator/button"
         ]
       },
-      "request_generator_idle_out": {
+      "row_request_generator_active": {
         "ports": [
-          "row_request_generator/idle_out",
-          "consumer/row_requestor_idle"
+          "row_request_generator/active",
+          "consumer/row_requestor_active"
         ]
       },
       "system_clock_IBUF_OUT": {

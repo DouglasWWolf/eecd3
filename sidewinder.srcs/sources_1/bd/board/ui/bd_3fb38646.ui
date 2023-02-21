@@ -14,67 +14,67 @@
    "No Loops_Layers":"/qsfp_data/aurora_core_1_sys_reset_out:true|/qsfp_data/aurora_core_sys_reset_out:true|/qsfp_data/aurora_core_user_clk_out:true|/qsfp_data/aurora_core_1_user_clk_out:true|/qsfp_data/reset_manager_0_pma_init_out:true|/ext_reset_in_0_1:true|/system_clock_IBUF_OUT:true|/qsfp_data/reset_manager_0_reset_pb_out:true|/system_reset_peripheral_aresetn:true|",
    "No Loops_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port clk_100mhz -pg 1 -lvl 0 -x 0 -y 940 -defaultsOSRD
-preplace port qsfp1_clk -pg 1 -lvl 6 -x 2010 -y 440 -defaultsOSRD -right
-preplace port qsfp0_clk -pg 1 -lvl 6 -x 2010 -y 400 -defaultsOSRD -right
-preplace port GPIO_LED -pg 1 -lvl 6 -x 2010 -y 140 -defaultsOSRD
-preplace port qsfp0_gt -pg 1 -lvl 6 -x 2010 -y 420 -defaultsOSRD
-preplace port qsfp1_gt -pg 1 -lvl 6 -x 2010 -y 460 -defaultsOSRD
-preplace port port-id_led_heartbeat -pg 1 -lvl 6 -x 2010 -y 1110 -defaultsOSRD
-preplace port port-id_pb_rst_n -pg 1 -lvl 0 -x 0 -y 1000 -defaultsOSRD
-preplace port port-id_pb_req -pg 1 -lvl 0 -x 0 -y 880 -defaultsOSRD
-preplace port port-id_channel_up_1 -pg 1 -lvl 6 -x 2010 -y 500 -defaultsOSRD
-preplace port port-id_channel_up_0 -pg 1 -lvl 6 -x 2010 -y 480 -defaultsOSRD
-preplace inst system_clock -pg 1 -lvl 1 -x 150 -y 940 -defaultsOSRD -pinDir CLK_IN_D left -pinY CLK_IN_D 0L -pinBusDir IBUF_OUT right -pinBusY IBUF_OUT 0R
-preplace inst system_reset -pg 1 -lvl 2 -x 470 -y 940 -swap {0 1 2 3 4 6 7 9 8 5} -defaultsOSRD -pinDir slowest_sync_clk left -pinY slowest_sync_clk 0L -pinDir ext_reset_in left -pinY ext_reset_in 60L -pinDir aux_reset_in left -pinY aux_reset_in 80L -pinDir mb_debug_sys_rst left -pinY mb_debug_sys_rst 100L -pinDir dcm_locked left -pinY dcm_locked 120L -pinDir mb_reset right -pinY mb_reset 20R -pinBusDir bus_struct_reset right -pinBusY bus_struct_reset 40R -pinBusDir peripheral_reset right -pinBusY peripheral_reset 80R -pinBusDir interconnect_aresetn right -pinBusY interconnect_aresetn 60R -pinBusDir peripheral_aresetn right -pinBusY peripheral_aresetn 0R
-preplace inst blinker -pg 1 -lvl 5 -x 1810 -y 1110 -defaultsOSRD -pinDir CLK left -pinY CLK 0L -pinDir RESETN left -pinY RESETN 20L -pinDir LED right -pinY LED 0R
-preplace inst qsfp_data -pg 1 -lvl 5 -x 1810 -y 400 -swap {0 1 2 3 4 5 6 7 15 9 10 25 12 13 14 8 16 17 18 19 20 21 22 23 24 32 26 27 28 29 30 31 11 33 34 35 36 37 38 39 42 41 40 43 44 45} -defaultsOSRD -pinDir ROW_REQ_TX left -pinY ROW_REQ_TX 0L -pinDir qsfp0_clk right -pinY qsfp0_clk 0R -pinDir qsfp1_clk right -pinY qsfp1_clk 40R -pinDir EVENT_STREAM_TX left -pinY EVENT_STREAM_TX 180L -pinDir qsfp0_gt right -pinY qsfp0_gt 20R -pinDir qsfp1_gt right -pinY qsfp1_gt 60R -pinDir RX_STREAM_CH0 left -pinY RX_STREAM_CH0 290L -pinDir RX_STREAM_CH1 left -pinY RX_STREAM_CH1 60L -pinDir channel_up_0 right -pinY channel_up_0 80R -pinDir init_clk left -pinY init_clk 350L -pinDir rx_clk left -pinY rx_clk 330L -pinBusDir rx_resetn left -pinBusY rx_resetn 310L -pinDir channel_up_1 right -pinY channel_up_1 100R -pinDir resetn_in left -pinY resetn_in 370L -pinBusDir reset_in left -pinBusY reset_in 620L
-preplace inst request_button -pg 1 -lvl 3 -x 970 -y 560 -defaultsOSRD -pinDir CLK left -pinY CLK 0L -pinDir PIN left -pinY PIN 30L -pinDir Q right -pinY Q 0R
-preplace inst consumer -pg 1 -lvl 2 -x 470 -y 160 -swap {0 1 2 3 11 5 6 7 8 9 10 4 12 13 14 15 16 17 24 19 20 18 23 21 22} -defaultsOSRD -pinDir M_AXI_PROXY right -pinY M_AXI_PROXY 0R -pinDir RX_STREAM_CH0 right -pinY RX_STREAM_CH0 530R -pinDir RX_STREAM_CH1 right -pinY RX_STREAM_CH1 340R -pinDir stream_clk right -pinY stream_clk 650R -pinDir slow_clk left -pinY slow_clk 650L -pinDir row_complete_out right -pinY row_complete_out 570R -pinDir stream_aresetn right -pinY stream_aresetn 550R -pinDir row_requestor_idle right -pinY row_requestor_idle 630R -pinDir underflow_out right -pinY underflow_out 590R -pinDir job_complete_out right -pinY job_complete_out 610R
-preplace inst axi_gpio_leds -pg 1 -lvl 5 -x 1810 -y 140 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir GPIO right -pinY GPIO 0R -pinDir s_axi_aclk left -pinY s_axi_aclk 140L -pinDir s_axi_aresetn left -pinY s_axi_aresetn 160L
-preplace inst system_interconnect -pg 1 -lvl 4 -x 1400 -y 80 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 60 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 20 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 81 80} -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 0L -pinDir M00_AXI right -pinY M00_AXI 60R -pinDir M01_AXI left -pinY M01_AXI 20L -pinDir M02_AXI right -pinY M02_AXI 0R -pinDir aclk left -pinY aclk 60L -pinDir aresetn left -pinY aresetn 40L
-preplace inst axi4lite_request_proxy -pg 1 -lvl 3 -x 970 -y 80 -swap {0 1 2 3 8 5 6 7 4 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29} -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 80L -pinDir AXIS_OUT right -pinY AXIS_OUT 120R -pinDir M_AXI right -pinY M_AXI 0R -pinDir clk left -pinY clk 100L -pinDir resetn left -pinY resetn 120L
-preplace inst stream_switch -pg 1 -lvl 4 -x 1400 -y 580 -swap {0 1 2 3 4 5 6 7 8 9 10 11 13 12} -defaultsOSRD -pinDir AXIS_IN1 left -pinY AXIS_IN1 0L -pinDir AXIS_IN2 left -pinY AXIS_IN2 20L -pinDir M_AXIS right -pinY M_AXIS 0R -pinDir clk left -pinY clk 60L -pinDir aresetn left -pinY aresetn 40L
-preplace inst unused_tied_low -pg 1 -lvl 2 -x 470 -y 60 -defaultsOSRD -pinBusDir dout right -pinBusY dout 0R
-preplace inst event_reporter -pg 1 -lvl 3 -x 970 -y 320 -swap {0 1 2 3 7 8 5 6 4} -defaultsOSRD -pinDir AXIS_OUT right -pinY AXIS_OUT 80R -pinDir clk left -pinY clk 60L -pinDir resetn left -pinY resetn 80L -pinDir report_underflow left -pinY report_underflow 20L -pinDir report_jobcomplete left -pinY report_jobcomplete 40L -pinDir report_event_b left -pinY report_event_b 0L
-preplace inst row_request_generator -pg 1 -lvl 4 -x 1400 -y 240 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 29 28 25 26 27} -defaultsOSRD -pinDir AXIS_TX right -pinY AXIS_TX 160R -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 160L -pinDir resetn left -pinY resetn 140L -pinDir row_complete_in left -pinY row_complete_in 20L -pinDir idle_out left -pinY idle_out 100L -pinDir button left -pinY button 120L
-preplace netloc PIN_0_1 1 0 3 NJ 880 NJ 880 810J
-preplace netloc binker_0_LED 1 5 1 NJ 1110
-preplace netloc consumer_dest_pulse 1 2 1 730 360n
-preplace netloc consumer_row_complete 1 2 2 670J 260 NJ
-preplace netloc consumer_underflow_out 1 2 1 690 340n
-preplace netloc ext_reset_in_0_1 1 0 2 NJ 1000 NJ
-preplace netloc qsfp_data_channel_up_0 1 5 1 NJ 480
-preplace netloc qsfp_data_channel_up_1 1 5 1 NJ 500
-preplace netloc qsfp_data_sys_resetn_out 1 2 3 650J 20 NJ 20 1610J
-preplace netloc qsfp_data_user_clk_out 1 2 3 790J 480 NJ 480 1550J
-preplace netloc request_button_Q 1 3 1 1250 360n
-preplace netloc request_generator_idle_out 1 2 2 770J 460 1130J
-preplace netloc system_clock_IBUF_OUT 1 1 4 280 860 710 670 1230 500 1570
-preplace netloc system_reset_peripheral_aresetn 1 2 3 750 650 1190 520 1590
-preplace netloc system_reset_peripheral_reset 1 2 3 NJ 1020 NJ 1020 NJ
-preplace netloc tied_low_dout 1 2 1 730 60n
-preplace netloc CLK_IN_D_0_1 1 0 1 NJ 940
-preplace netloc EVENT_STREAM_TX_1 1 4 1 N 580
-preplace netloc GT_DIFF_REFCLK1_0_1 1 5 1 NJ 400
-preplace netloc axi_gpio_0_GPIO 1 5 1 NJ 140
-preplace netloc axi_request_proxy_AXIS_OUT 1 3 1 1210 200n
-preplace netloc axi_request_proxy_M_AXI 1 3 1 N 80
-preplace netloc consumer_M_AXIS 1 2 1 N 160
-preplace netloc event_reporter_0_AXIS_OUT 1 3 1 1150 400n
-preplace netloc qsfp1_clk_1 1 5 1 NJ 440
-preplace netloc qsfp_data_M_AXIS 1 2 3 NJ 690 NJ 690 NJ
-preplace netloc qsfp_data_M_AXIS1 1 2 3 NJ 500 1170J 460 NJ
-preplace netloc qsfp_data_gt_serial_port_0 1 5 1 NJ 420
-preplace netloc qsfp_data_gt_serial_port_1 1 5 1 NJ 460
-preplace netloc row_request_generator_AXIS_TX 1 4 1 N 400
-preplace netloc smartconnect_0_M00_AXI 1 4 1 N 140
-preplace netloc system_interconnect_M01_AXI 1 3 1 1250 100n
-levelinfo -pg 1 0 150 470 970 1400 1810 2010
-pagesize -pg 1 -db -bbox -sgen -140 0 2160 1190
+preplace port clk_100mhz -pg 1 -lvl 0 -x 0 -y 270 -defaultsOSRD
+preplace port qsfp1_clk -pg 1 -lvl 6 -x 1850 -y 100 -defaultsOSRD -right
+preplace port qsfp0_clk -pg 1 -lvl 6 -x 1850 -y 60 -defaultsOSRD -right
+preplace port GPIO_LED -pg 1 -lvl 6 -x 1850 -y 870 -defaultsOSRD
+preplace port qsfp0_gt -pg 1 -lvl 6 -x 1850 -y 80 -defaultsOSRD
+preplace port qsfp1_gt -pg 1 -lvl 6 -x 1850 -y 120 -defaultsOSRD
+preplace port port-id_led_heartbeat -pg 1 -lvl 6 -x 1850 -y 770 -defaultsOSRD
+preplace port port-id_pb_rst_n -pg 1 -lvl 0 -x 0 -y 520 -defaultsOSRD
+preplace port port-id_pb_req -pg 1 -lvl 0 -x 0 -y 340 -defaultsOSRD
+preplace port port-id_channel_up_1 -pg 1 -lvl 6 -x 1850 -y 160 -defaultsOSRD
+preplace port port-id_channel_up_0 -pg 1 -lvl 6 -x 1850 -y 140 -defaultsOSRD
+preplace inst system_clock -pg 1 -lvl 1 -x 150 -y 270 -defaultsOSRD -pinDir CLK_IN_D left -pinY CLK_IN_D 0L -pinBusDir IBUF_OUT right -pinBusY IBUF_OUT 0R
+preplace inst system_reset -pg 1 -lvl 2 -x 470 -y 500 -swap {0 1 2 3 4 6 7 5 8 9} -defaultsOSRD -pinDir slowest_sync_clk left -pinY slowest_sync_clk 0L -pinDir ext_reset_in left -pinY ext_reset_in 20L -pinDir aux_reset_in left -pinY aux_reset_in 40L -pinDir mb_debug_sys_rst left -pinY mb_debug_sys_rst 60L -pinDir dcm_locked left -pinY dcm_locked 80L -pinDir mb_reset right -pinY mb_reset 20R -pinBusDir bus_struct_reset right -pinBusY bus_struct_reset 40R -pinBusDir peripheral_reset right -pinBusY peripheral_reset 0R -pinBusDir interconnect_aresetn right -pinBusY interconnect_aresetn 60R -pinBusDir peripheral_aresetn right -pinBusY peripheral_aresetn 80R
+preplace inst blinker -pg 1 -lvl 5 -x 1670 -y 750 -defaultsOSRD -pinDir CLK left -pinY CLK 0L -pinDir RESETN left -pinY RESETN 20L -pinDir LED right -pinY LED 20R
+preplace inst qsfp_data -pg 1 -lvl 5 -x 1670 -y 60 -swap {25 1 2 3 4 5 6 7 15 9 10 32 12 13 14 8 16 17 18 19 20 21 22 23 24 11 26 27 28 29 30 31 0 33 34 35 36 37 38 39 42 41 40 43 44 45} -defaultsOSRD -pinDir ROW_REQ_TX left -pinY ROW_REQ_TX 140L -pinDir qsfp0_clk right -pinY qsfp0_clk 0R -pinDir qsfp1_clk right -pinY qsfp1_clk 40R -pinDir EVENT_STREAM_TX left -pinY EVENT_STREAM_TX 500L -pinDir qsfp0_gt right -pinY qsfp0_gt 20R -pinDir qsfp1_gt right -pinY qsfp1_gt 60R -pinDir RX_STREAM_CH0 left -pinY RX_STREAM_CH0 20L -pinDir RX_STREAM_CH1 left -pinY RX_STREAM_CH1 0L -pinDir channel_up_0 right -pinY channel_up_0 80R -pinDir init_clk left -pinY init_clk 560L -pinDir rx_clk left -pinY rx_clk 540L -pinBusDir rx_resetn left -pinBusY rx_resetn 520L -pinDir channel_up_1 right -pinY channel_up_1 100R -pinDir resetn_in left -pinY resetn_in 580L -pinBusDir reset_in left -pinBusY reset_in 600L
+preplace inst request_button -pg 1 -lvl 3 -x 910 -y 240 -defaultsOSRD -pinDir CLK left -pinY CLK 0L -pinDir PIN left -pinY PIN 20L -pinDir Q right -pinY Q 20R
+preplace inst consumer -pg 1 -lvl 2 -x 470 -y 60 -swap {11 1 2 3 4 5 6 7 8 9 10 0 12 13 14 15 16 17 20 19 21 18 22 23 24} -defaultsOSRD -pinDir M_AXI_PROXY right -pinY M_AXI_PROXY 40R -pinDir RX_STREAM_CH0 right -pinY RX_STREAM_CH0 20R -pinDir RX_STREAM_CH1 right -pinY RX_STREAM_CH1 0R -pinDir stream_clk right -pinY stream_clk 80R -pinDir slow_clk left -pinY slow_clk 210L -pinDir row_complete_out right -pinY row_complete_out 100R -pinDir stream_aresetn right -pinY stream_aresetn 60R -pinDir row_requestor_active right -pinY row_requestor_active 120R -pinDir underflow_out right -pinY underflow_out 190R -pinDir job_complete_out right -pinY job_complete_out 210R
+preplace inst axi_gpio_leds -pg 1 -lvl 5 -x 1670 -y 870 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir GPIO right -pinY GPIO 0R -pinDir s_axi_aclk left -pinY s_axi_aclk 20L -pinDir s_axi_aresetn left -pinY s_axi_aresetn 40L
+preplace inst system_interconnect -pg 1 -lvl 4 -x 1280 -y 730 -swap {40 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 0 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81} -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 20L -pinDir M00_AXI right -pinY M00_AXI 140R -pinDir M01_AXI left -pinY M01_AXI 0L -pinDir M02_AXI right -pinY M02_AXI 160R -pinDir aclk left -pinY aclk 40L -pinDir aresetn left -pinY aresetn 60L
+preplace inst axi4lite_request_proxy -pg 1 -lvl 3 -x 910 -y 600 -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir AXIS_OUT right -pinY AXIS_OUT 0R -pinDir M_AXI right -pinY M_AXI 150R -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L
+preplace inst stream_switch -pg 1 -lvl 4 -x 1280 -y 560 -swap {4 1 2 3 0 5 6 7 8 9 10 11 12 13} -defaultsOSRD -pinDir AXIS_IN1 left -pinY AXIS_IN1 40L -pinDir AXIS_IN2 left -pinY AXIS_IN2 0L -pinDir M_AXIS right -pinY M_AXIS 0R -pinDir clk left -pinY clk 60L -pinDir aresetn left -pinY aresetn 80L
+preplace inst unused_tied_low -pg 1 -lvl 2 -x 470 -y 400 -defaultsOSRD -pinBusDir dout right -pinBusY dout 0R
+preplace inst event_reporter -pg 1 -lvl 3 -x 910 -y 360 -swap {0 1 2 3 6 8 4 5 7} -defaultsOSRD -pinDir AXIS_OUT right -pinY AXIS_OUT 80R -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 80L -pinDir report_underflow left -pinY report_underflow 0L -pinDir report_jobcomplete left -pinY report_jobcomplete 20L -pinDir report_event_b left -pinY report_event_b 60L
+preplace inst row_request_generator -pg 1 -lvl 4 -x 1280 -y 200 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 28 29 25 26 27} -defaultsOSRD -pinDir AXIS_TX right -pinY AXIS_TX 0R -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 180L -pinDir resetn left -pinY resetn 200L -pinDir row_complete_in left -pinY row_complete_in 20L -pinDir active left -pinY active 40L -pinDir button left -pinY button 60L
+preplace netloc PIN_0_1 1 0 3 NJ 340 NJ 340 690J
+preplace netloc binker_0_LED 1 5 1 NJ 770
+preplace netloc consumer_dest_pulse 1 2 1 650 270n
+preplace netloc consumer_row_complete 1 2 2 NJ 160 1090
+preplace netloc consumer_underflow_out 1 2 1 670 250n
+preplace netloc ext_reset_in_0_1 1 0 2 NJ 520 NJ
+preplace netloc qsfp_data_channel_up_0 1 5 1 NJ 140
+preplace netloc qsfp_data_channel_up_1 1 5 1 NJ 160
+preplace netloc qsfp_data_sys_resetn_out 1 2 3 NJ 120 NJ 120 1510
+preplace netloc qsfp_data_user_clk_out 1 2 3 NJ 140 NJ 140 1490
+preplace netloc request_button_Q 1 3 1 N 260
+preplace netloc row_request_generator_active 1 2 2 NJ 180 1070
+preplace netloc system_clock_IBUF_OUT 1 1 4 280 320 730 520 1090 460 1470
+preplace netloc system_reset_peripheral_aresetn 1 2 3 750 540 1110 480 1430
+preplace netloc system_reset_peripheral_reset 1 2 3 NJ 500 NJ 500 1450
+preplace netloc tied_low_dout 1 2 1 690J 400n
+preplace netloc CLK_IN_D_0_1 1 0 1 NJ 270
+preplace netloc EVENT_STREAM_TX_1 1 4 1 N 560
+preplace netloc GT_DIFF_REFCLK1_0_1 1 5 1 NJ 60
+preplace netloc axi_gpio_0_GPIO 1 5 1 NJ 870
+preplace netloc axi_request_proxy_AXIS_OUT 1 3 1 N 600
+preplace netloc axi_request_proxy_M_AXI 1 3 1 N 750
+preplace netloc consumer_M_AXIS 1 2 1 710 100n
+preplace netloc event_reporter_0_AXIS_OUT 1 3 1 1070 440n
+preplace netloc qsfp1_clk_1 1 5 1 NJ 100
+preplace netloc qsfp_data_M_AXIS 1 2 3 NJ 80 NJ 80 N
+preplace netloc qsfp_data_M_AXIS1 1 2 3 NJ 60 NJ 60 N
+preplace netloc qsfp_data_gt_serial_port_0 1 5 1 NJ 80
+preplace netloc qsfp_data_gt_serial_port_1 1 5 1 NJ 120
+preplace netloc row_request_generator_AXIS_TX 1 4 1 N 200
+preplace netloc smartconnect_0_M00_AXI 1 4 1 N 870
+preplace netloc system_interconnect_M01_AXI 1 3 1 1130 200n
+levelinfo -pg 1 0 150 470 910 1280 1670 1850
+pagesize -pg 1 -db -bbox -sgen -140 0 2000 970
 ",
-   "No Loops_ScaleFactor":"0.787522",
-   "No Loops_TopLeft":"-135,-76",
+   "No Loops_ScaleFactor":"0.65666",
+   "No Loops_TopLeft":"-134,-91",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 320 -y -220 -defaultsOSRD
