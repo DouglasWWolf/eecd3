@@ -391,7 +391,7 @@ always @(posedge clk) begin
     if (new_dataset) errors <= 0;
 
     // Keep track of how many row-data data-cycles have an error
-    if (csm_state == 1 && rx_valid) begin
+    if (csm_state == CSM_WAIT_ROW_DATA && rx_valid) begin
         if (rx0_data[ 63: 32] != value02) errors <= errors + 1;
         if (rx0_data[ 95: 64] != value03) errors <= errors + 1;
         if (rx0_data[127: 96] != value04) errors <= errors + 1;
