@@ -7,7 +7,8 @@
       "name": "board",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1"
+      "tool_version": "2021.1",
+      "validated": "true"
     },
     "design_tree": {
       "system_clock": "",
@@ -57,13 +58,27 @@
       "clk_100mhz": {
         "mode": "Slave",
         "vlnv_bus_definition": "xilinx.com:interface:diff_clock:1.0",
-        "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0"
+        "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
+        "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          }
+        }
       },
       "qsfp1_clk": {
         "mode": "Slave",
         "vlnv_bus_definition": "xilinx.com:interface:diff_clock:1.0",
         "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
         "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "322265625"
           }
@@ -74,6 +89,10 @@
         "vlnv_bus_definition": "xilinx.com:interface:diff_clock:1.0",
         "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
         "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "322265625"
           }
@@ -87,12 +106,24 @@
       "qsfp0_gt": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:gt:1.0",
-        "vlnv": "xilinx.com:interface:gt_rtl:1.0"
+        "vlnv": "xilinx.com:interface:gt_rtl:1.0",
+        "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          }
+        }
       },
       "qsfp1_gt": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:gt:1.0",
-        "vlnv": "xilinx.com:interface:gt_rtl:1.0"
+        "vlnv": "xilinx.com:interface:gt_rtl:1.0",
+        "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          }
+        }
       }
     },
     "ports": {
@@ -101,7 +132,17 @@
       },
       "pb_rst_n": {
         "type": "rst",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       },
       "pb_req": {
         "direction": "I"
@@ -1566,6 +1607,14 @@
                   "HAS_TLAST": {
                     "value": "1",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "322265625",
+                    "value_src": "const_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
+                    "value_src": "default_prop"
                   }
                 },
                 "port_maps": {
@@ -1635,6 +1684,14 @@
                   "HAS_TLAST": {
                     "value": "1",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "322265625",
+                    "value_src": "const_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
+                    "value_src": "default_prop"
                   }
                 },
                 "port_maps": {
@@ -1704,6 +1761,14 @@
                   "HAS_TLAST": {
                     "value": "0",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "322265625",
+                    "value_src": "const_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
+                    "value_src": "default_prop"
                   }
                 },
                 "port_maps": {
@@ -1732,6 +1797,14 @@
                   "ASSOCIATED_BUSIF": {
                     "value": "AXIS_CH0:AXIS_CH1:AXI_REQ",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "322265625",
+                    "value_src": "const_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "board_qsfp0_ethernet_0_gt_rxusrclk2",
+                    "value_src": "default_prop"
                   }
                 }
               },

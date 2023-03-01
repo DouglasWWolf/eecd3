@@ -136,7 +136,8 @@ localparam DATA_CYCLES_PER_ROW = 2048 / DATA_BYTES;
 // When "silence_counter" hits this value, the receive stream is considered "silent"
 localparam SILENT_LIMIT = 100000;
 
-// If no row-data arrives for this many cycles, an underflow has occured
+// If no row-data arrives for this many cycles, an underflow has occured.  This value should be less than
+// the SILENT_LIMIT
 localparam UNDERFLOW_TIMEOUT = 1000;
 
 // Counts the number of cycles that have occured where data is received
@@ -147,9 +148,6 @@ reg[31:0] silence_counter = SILENT_LIMIT;
 
 // We are considered 'silent' when the 
 wire rx_silent = (silence_counter == SILENT_LIMIT && ~rx_valid);
-
-// Counts down to zero when consecutive cycles haven't any received data
-reg[31:0] underflow_watchdog;
 
 // Counts the number of clock cycles up to CYCLES_PER_SEC
 reg[31:0] clock_cycles;
@@ -244,17 +242,14 @@ always @(posedge clk) begin
     // When this is raised, it will strobe high for exactly one cycle
     row_complete <= 0;
 
-    // Count down the watchdog timer that tells how long since we've received row data
-    if (underflow_watchdog) underflow_watchdog <= underflow_watchdog - 1;
-
     // Keep track of the number of consecutive cycles of no RX data
     if (~rx_valid & silence_counter < SILENT_LIMIT) silence_counter <= silence_counter + 1;
 
     // If we go too long without receiving row-data, pulse the "underflow" output
-    underflow_out <= (row_requestor_active && underflow_watchdog == 1);
+    underflow_out <= (row_requestor_active && silence_counter == UNDERFLOW_TIMEOUT);
 
     // If the idle-watchdog runs out of time while the row-requestor is idle, the sequencing job has completed
-    job_complete_out <= (~row_requestor_active && underflow_watchdog == 1);
+    job_complete_out <= (~row_requestor_active & ~rx_valid & silence_counter == SILENT_LIMIT - 1);
 
     case(csm_state)
         
@@ -273,7 +268,6 @@ always @(posedge clk) begin
 
                 // Otherwise, if this is the header-cycle for a packet of row-data...
                 else if (packet_type == PKT_TYPE_ROW_DATA) begin
-                    underflow_watchdog <= UNDERFLOW_TIMEOUT;
                     silence_counter    <= 0;
                     data_cycle_counter <= 1;
                     csm_state          <= CSM_WAIT_ROW_DATA;
@@ -281,7 +275,6 @@ always @(posedge clk) begin
 
                 // Otherwise assume this is test-pattern data
                 else begin
-                    underflow_watchdog <= UNDERFLOW_TIMEOUT;
                     silence_counter    <= 0;
                     bytes_per_sec      <= bytes_per_sec + DATA_BYTES;
                     csm_state          <= CSM_TOSS_PACKET;
@@ -292,22 +285,11 @@ always @(posedge clk) begin
         CSM_WAIT_ROW_DATA:
         
             if (rx_valid) begin
-    
-                // Accumulate a total of data-bytes received
-                bytes_per_sec <= bytes_per_sec + DATA_BYTES;
-
-                // The input stream isn't idle
-                underflow_watchdog <= UNDERFLOW_TIMEOUT;
-
-                // Tickle the "rx_silent" watchdog
+                bytes_per_sec   <= bytes_per_sec + DATA_BYTES;
                 silence_counter <= 0;
-
-                // If this is the last data-cycle for this row, go wait for the row-footer to arrive
                 if (data_cycle_counter == DATA_CYCLES_PER_ROW) begin
-                    csm_state <= CSM_WAIT_ROW_FOOTER;
+                    csm_state  <= CSM_WAIT_ROW_FOOTER;
                 end 
-
-                // Keep track of how many data-cycles we've recieved
                 data_cycle_counter <= data_cycle_counter + 1;
             end
 
@@ -315,23 +297,24 @@ always @(posedge clk) begin
         CSM_WAIT_ROW_FOOTER:
 
             if (rx_valid) begin
-                rows_rcvd    <= rows_rcvd + 1;
-                elapsed_secs <= seconds;
-                row_complete <= 1;
-                csm_state    <= CSM_WAIT_FOR_PACKET;
+                silence_counter <= 0;
+                rows_rcvd       <= rows_rcvd + 1;
+                elapsed_secs    <= seconds;
+                row_complete    <= 1;
+                csm_state       <= CSM_WAIT_FOR_PACKET;
             end
 
         // If we get here we are throwing away an unrecognized packet
         CSM_TOSS_PACKET:
 
             if (rx_valid) begin
-                bytes_per_sec      <= bytes_per_sec + DATA_BYTES;
-                underflow_watchdog <= UNDERFLOW_TIMEOUT;
-                silence_counter    <= 0;
+                bytes_per_sec   <= bytes_per_sec + DATA_BYTES;
+                silence_counter <= 0;
 
                 if (rx_tlast) begin
-                    rows_rcvd <= rows_rcvd + 1;
-                    csm_state <= CSM_WAIT_FOR_PACKET;
+                    rows_rcvd    <= rows_rcvd + 1;
+                    elapsed_secs <= seconds;
+                    csm_state    <= CSM_WAIT_FOR_PACKET;
                 end
             end
 
