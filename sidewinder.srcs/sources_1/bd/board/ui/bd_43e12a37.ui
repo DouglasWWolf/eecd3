@@ -41,6 +41,7 @@ preplace netloc resetn_in_1 1 0 1 40 180n
 preplace netloc system_clock_IBUF_OUT 1 0 2 20 260 380
 preplace netloc Conn1 1 2 2 NJ 430 NJ
 preplace netloc Conn4 1 2 2 NJ 60 NJ
+preplace netloc EVENT_STREAM_TX_1 1 0 1 NJ 320
 preplace netloc ROW_REQ_TX_1 1 0 1 NJ 160
 preplace netloc event_clock_converter_M_AXIS 1 1 1 N 330
 preplace netloc qsfp0_clk_1 1 0 2 NJ 100 NJ
@@ -50,12 +51,11 @@ preplace netloc qsfp1_ethernet_axis_rx 1 2 1 N 330
 preplace netloc row_request_clock_converter_M_AXIS 1 1 1 N 160
 preplace netloc rx0_axis_fifo_M_AXIS 1 3 1 NJ 120
 preplace netloc rx1_axis_fifo_M_AXIS 1 3 1 NJ 330
-preplace netloc EVENT_STREAM_TX_1 1 0 1 NJ 320
 levelinfo -pg 1 0 180 520 800 940
 pagesize -pg 1 -db -bbox -sgen -190 0 1120 560
 ",
    "No Loops_ScaleFactor":"1.0",
-   "No Loops_TopLeft":"-238,-99",
+   "No Loops_TopLeft":"-275,-86",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port AXI_STREAM_TX -pg 1 -lvl 0 -x 0 -y 240 -defaultsOSRD

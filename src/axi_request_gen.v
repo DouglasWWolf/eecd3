@@ -9,8 +9,7 @@
 
 /*
 
-Usage:
-
+Usage: this object generates row-requests that are sent to the ECD-Master
 
 */
 
@@ -69,6 +68,12 @@ module axi_request_gen
     input                                   S_AXI_RREADY
     //==========================================================================
  );
+
+    //==========================================================================
+    // Low order bits for fields in the row-request message
+    //==========================================================================
+    localparam PKT_TYPE_OFFS = 0;
+    localparam ROW_REQ_OFFS  = 8;
 
     //==========================================================================
     // We'll communicate with the AXI4-Lite Slave core with these signals.
@@ -233,15 +238,16 @@ module axi_request_gen
 
         // Here we're waiting around for another thread to tell us to start
         0:  if (start_requesting) begin
-                requests_completed <= 0;
-                requests_sent      <= 0;
-                max_requests       <= {axi_register[REG_COUNTH], axi_register[REG_COUNTL]} - 1;
-                AXIS_TX_TDATA      <= 32'h0000_C008;
-                rsm_state          <= 1;
+                requests_completed                 <= 0;
+                requests_sent                      <= 0;
+                max_requests                       <= {axi_register[REG_COUNTH], axi_register[REG_COUNTL]} - 1;
+                AXIS_TX_TDATA[PKT_TYPE_OFFS +: 8]  <= 0;
+                AXIS_TX_TDATA[ROW_REQ_OFFS  +: 32] <= 32'h0000_C008;
+                rsm_state                          <= 1;
             end
 
         1:  if (AXIS_TX_TVALID & AXIS_TX_TREADY) begin
-                AXIS_TX_TDATA[31:0] <= AXIS_TX_TDATA[31:0] + 1;
+                AXIS_TX_TDATA[ROW_REQ_OFFS +:32] <= AXIS_TX_TDATA[ROW_REQ_OFFS +:32] + 1;
                 if (requests_sent == max_requests) begin
                     rsm_state <= 0;
                 end
@@ -251,6 +257,7 @@ module axi_request_gen
         endcase
     end
     //==========================================================================
+
 
     //==========================================================================
     // This connects us to an AXI4-Lite slave core

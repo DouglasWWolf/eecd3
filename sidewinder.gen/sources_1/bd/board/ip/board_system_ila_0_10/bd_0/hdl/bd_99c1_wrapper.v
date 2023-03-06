@@ -26,6 +26,7 @@ module bd_99c1_wrapper
     probe3,
     probe4,
     probe5,
+    probe6,
     resetn);
   input [511:0]SLOT_0_AXIS_tdata;
   input [63:0]SLOT_0_AXIS_tkeep;
@@ -46,6 +47,7 @@ module bd_99c1_wrapper
   input [1:0]probe3;
   input [1:0]probe4;
   input [0:0]probe5;
+  input [0:0]probe6;
   input resetn;
 
   wire [511:0]SLOT_0_AXIS_tdata;
@@ -67,6 +69,7 @@ module bd_99c1_wrapper
   wire [1:0]probe3;
   wire [1:0]probe4;
   wire [0:0]probe5;
+  wire [0:0]probe6;
   wire resetn;
 
   bd_99c1 bd_99c1_i
@@ -89,5 +92,6 @@ module bd_99c1_wrapper
         .probe3(probe3),
         .probe4(probe4),
         .probe5(probe5),
+        .probe6(probe6),
         .resetn(resetn));
 endmodule

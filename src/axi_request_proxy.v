@@ -17,7 +17,7 @@ module axi_request_proxy
     input clk, resetn,
 
     //=========================  Stream interface for the AXI request  ==============================
-    input[71:0]    AXIS_IN_TDATA,
+    input[95:0]    AXIS_IN_TDATA,
     input          AXIS_IN_TVALID,
     output reg     AXIS_IN_TREADY,
     //===============================================================================================
@@ -90,17 +90,24 @@ module axi_request_proxy
     //===============================================================================================
     // Field definitions for the TDATA lines
     //===============================================================================================
-    wire[31:0] axi_addr_in = AXIS_IN_TDATA[31:00];
-    wire[31:0] axi_data_in = AXIS_IN_TDATA[63:32];
-    wire       axi_mode_in = AXIS_IN_TDATA[64];
+    localparam PKT_TYPE_OFFS = 0;
+    localparam AXI_MODE_OFFS = 8;
+    localparam AXI_RESP_OFFS = 16;
+    localparam AXI_ADDR_OFFS = 24;
+    localparam AXI_DATA_OFFS = 56;
 
-    // axi4lite responses are always packet type 0
-    assign AXIS_OUT_TDATA[255:248] = 0;
+   
+    wire[31:0] axi_addr_in = AXIS_IN_TDATA[AXI_ADDR_OFFS +:32];
+    wire[31:0] axi_data_in = AXIS_IN_TDATA[AXI_DATA_OFFS +:32];
+    wire       axi_mode_in = AXIS_IN_TDATA[AXI_MODE_OFFS];
 
-    reg[31:0] axi_addr_out; assign AXIS_OUT_TDATA[31:00] = axi_addr_out;
-    reg[31:0] axi_data_out; assign AXIS_OUT_TDATA[63:32] = axi_data_out;
-    reg[ 1:0] axi_resp_out; assign AXIS_OUT_TDATA[65:64] = axi_resp_out;
-    
+    // axi4lite responses are always packet type 1
+    assign AXIS_OUT_TDATA[0 +:8] = 1;
+
+    reg[ 7:0] axi_mode_out; assign AXIS_OUT_TDATA[AXI_MODE_OFFS +:8 ] = axi_mode_out;
+    reg[ 7:0] axi_resp_out; assign AXIS_OUT_TDATA[AXI_RESP_OFFS +:8 ] = axi_resp_out;
+    reg[31:0] axi_addr_out; assign AXIS_OUT_TDATA[AXI_ADDR_OFFS +:32] = axi_addr_out;
+    reg[31:0] axi_data_out; assign AXIS_OUT_TDATA[AXI_DATA_OFFS +:32] = axi_data_out;
     //===============================================================================================
 
 
@@ -137,7 +144,7 @@ module axi_request_proxy
             FSM_WAIT_FOR_CMD:
                 if (AXIS_IN_TREADY & AXIS_IN_TVALID) begin
                    AXIS_IN_TREADY <= 0;
-
+                    axi_mode_out <= axi_mode_in;
                     if (axi_mode_in == 0) begin
                         amci_waddr  <= axi_addr_in;
                         amci_wdata  <= axi_data_in;

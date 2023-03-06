@@ -61,11 +61,11 @@ wire fifo_empty;
 // This holds the EVENT_CODE_xxxx that gets written into AXIS_OUT_TDATA
 reg[7:0] event_code;
 
-// Lower 8-bits of TDATA are the event-code
-assign AXIS_OUT_TDATA[7:0] = event_code;
+// Byte 0 of the message is the message type, always "2"
+assign AXIS_OUT_TDATA[0 +:8] = 2; 
 
-// Upper 8-bits of TDATA are always 0x01
-assign AXIS_OUT_TDATA[255:248] = 1; 
+// Byte 1 of the message is the event code
+assign AXIS_OUT_TDATA[8 +:8] = event_code;
 
 // Each of the report_xxxx inputs ends up as a bit in this register
 reg[EVENT_TYPES-1:0] event_group;

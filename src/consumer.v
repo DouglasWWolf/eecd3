@@ -73,9 +73,9 @@ module axis_consumer#
     //===============================================================================================
 
     //========================  AXI Stream interface for AXI requests  ==============================
-    output [71:0] AXI_REQ_TDATA,
-    output reg    AXI_REQ_TVALID,
-    input         AXI_REQ_TREADY
+    output reg [95:0] AXI_REQ_TDATA,
+    output reg        AXI_REQ_TVALID,
+    input             AXI_REQ_TREADY
     //===============================================================================================
 );
 
@@ -109,20 +109,10 @@ assign rx_valid = (rx_buffer_valid == BOTH);
 //===============================================================================================
 
 
-
 //===============================================================================================
 // Field definitions for the TDATA lines
 //===============================================================================================
-wire[7:0]  packet_type  = rx1_data[511:504];
-
-wire[31:0] axi_addr_in  = rx1_data[31:00];
-wire[31:0] axi_data_in  = rx1_data[63:32];
-wire       axi_mode_in  = rx1_data[64];
-
-reg[31:0] axi_addr_out; assign AXI_REQ_TDATA[31:00] = axi_addr_out;
-reg[31:0] axi_data_out; assign AXI_REQ_TDATA[63:32] = axi_data_out;
-reg       axi_mode_out; assign AXI_REQ_TDATA[64   ] = axi_mode_out;
-//===============================================================================================
+wire[7:0] packet_type  = rx1_data[7:0];
 
 // This is the frequency of 'clk'
 localparam CYCLES_PER_SECOND = 322265625;
@@ -260,9 +250,7 @@ always @(posedge clk) begin
             
                 // If this cycle is an AXI read/write request...
                 if (packet_type == PKT_TYPE_AXI) begin
-                    axi_data_out   <= axi_data_in;      // Fill in the data-word in AXIS_IN_TDATA
-                    axi_addr_out   <= axi_addr_in;      // Fill in the AXI address in AXIS_IN_TDATA
-                    axi_mode_out   <= axi_mode_in;      // Assume this is an AXI write-request
+                    AXI_REQ_TDATA  <= rx1_data;         // Copy this message to the AXI_REQ output bus
                     AXI_REQ_TVALID <= 1;                // Emit this AXI read/write request
                 end
 

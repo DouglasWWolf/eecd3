@@ -33,11 +33,11 @@ preplace inst request_button -pg 1 -lvl 3 -x 910 -y 240 -defaultsOSRD -pinDir CL
 preplace inst consumer -pg 1 -lvl 2 -x 470 -y 60 -swap {11 1 2 3 4 5 6 7 8 9 10 0 12 13 14 15 16 17 20 19 21 18 22 23 24} -defaultsOSRD -pinDir M_AXI_PROXY right -pinY M_AXI_PROXY 40R -pinDir RX_STREAM_CH0 right -pinY RX_STREAM_CH0 20R -pinDir RX_STREAM_CH1 right -pinY RX_STREAM_CH1 0R -pinDir stream_clk right -pinY stream_clk 80R -pinDir slow_clk left -pinY slow_clk 210L -pinDir row_complete_out right -pinY row_complete_out 100R -pinDir stream_aresetn right -pinY stream_aresetn 60R -pinDir row_requestor_active right -pinY row_requestor_active 120R -pinDir underflow_out right -pinY underflow_out 190R -pinDir job_complete_out right -pinY job_complete_out 210R
 preplace inst axi_gpio_leds -pg 1 -lvl 5 -x 1670 -y 870 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir GPIO right -pinY GPIO 0R -pinDir s_axi_aclk left -pinY s_axi_aclk 20L -pinDir s_axi_aresetn left -pinY s_axi_aresetn 40L
 preplace inst system_interconnect -pg 1 -lvl 4 -x 1280 -y 730 -swap {40 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 0 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81} -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 20L -pinDir M00_AXI right -pinY M00_AXI 140R -pinDir M01_AXI left -pinY M01_AXI 0L -pinDir M02_AXI right -pinY M02_AXI 160R -pinDir aclk left -pinY aclk 40L -pinDir aresetn left -pinY aresetn 60L
-preplace inst axi4lite_request_proxy -pg 1 -lvl 3 -x 910 -y 600 -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir AXIS_OUT right -pinY AXIS_OUT 0R -pinDir M_AXI right -pinY M_AXI 150R -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L
 preplace inst stream_switch -pg 1 -lvl 4 -x 1280 -y 560 -swap {4 1 2 3 0 5 6 7 8 9 10 11 12 13} -defaultsOSRD -pinDir AXIS_IN1 left -pinY AXIS_IN1 40L -pinDir AXIS_IN2 left -pinY AXIS_IN2 0L -pinDir M_AXIS right -pinY M_AXIS 0R -pinDir clk left -pinY clk 60L -pinDir aresetn left -pinY aresetn 80L
 preplace inst unused_tied_low -pg 1 -lvl 2 -x 470 -y 400 -defaultsOSRD -pinBusDir dout right -pinBusY dout 0R
 preplace inst event_reporter -pg 1 -lvl 3 -x 910 -y 360 -swap {0 1 2 3 6 8 4 5 7} -defaultsOSRD -pinDir AXIS_OUT right -pinY AXIS_OUT 80R -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 80L -pinDir report_underflow left -pinY report_underflow 0L -pinDir report_jobcomplete left -pinY report_jobcomplete 20L -pinDir report_event_b left -pinY report_event_b 60L
 preplace inst row_request_generator -pg 1 -lvl 4 -x 1280 -y 200 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 28 29 25 26 27} -defaultsOSRD -pinDir AXIS_TX right -pinY AXIS_TX 0R -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 180L -pinDir resetn left -pinY resetn 200L -pinDir row_complete_in left -pinY row_complete_in 20L -pinDir active left -pinY active 40L -pinDir button left -pinY button 60L
+preplace inst axi4lite_request_proxy -pg 1 -lvl 3 -x 910 -y 600 -defaultsOSRD -pinDir AXIS_IN left -pinY AXIS_IN 0L -pinDir AXIS_OUT right -pinY AXIS_OUT 0R -pinDir M_AXI right -pinY M_AXI 150R -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L
 preplace netloc PIN_0_1 1 0 3 NJ 340 NJ 340 690J
 preplace netloc binker_0_LED 1 5 1 NJ 770
 preplace netloc consumer_dest_pulse 1 2 1 650 270n
@@ -73,8 +73,8 @@ preplace netloc system_interconnect_M01_AXI 1 3 1 1130 200n
 levelinfo -pg 1 0 150 470 910 1280 1670 1850
 pagesize -pg 1 -db -bbox -sgen -140 0 2000 970
 ",
-   "No Loops_ScaleFactor":"0.65666",
-   "No Loops_TopLeft":"-134,-72",
+   "No Loops_ScaleFactor":"0.691839",
+   "No Loops_TopLeft":"-133,-43",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 320 -y -220 -defaultsOSRD
