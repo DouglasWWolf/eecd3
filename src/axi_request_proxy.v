@@ -93,8 +93,8 @@ module axi_request_proxy
     localparam PKT_TYPE_OFFS = 0;
     localparam AXI_MODE_OFFS = 8;
     localparam AXI_RESP_OFFS = 16;
-    localparam AXI_ADDR_OFFS = 24;
-    localparam AXI_DATA_OFFS = 56;
+    localparam AXI_ADDR_OFFS = 32;
+    localparam AXI_DATA_OFFS = 64;
 
    
     wire[31:0] axi_addr_in = AXIS_IN_TDATA[AXI_ADDR_OFFS +:32];

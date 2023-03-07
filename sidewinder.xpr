@@ -174,21 +174,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axis_switch_0_0/board_axis_switch_0_0.xci">
-          <Proxy FileSetName="board_axis_switch_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axis_register_slice_0_0/board_axis_register_slice_0_0.xci">
-          <Proxy FileSetName="board_axis_register_slice_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_event_reporter_0_1/board_event_reporter_0_1.xci">
-          <Proxy FileSetName="board_event_reporter_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axi_request_gen_0_0/board_axi_request_gen_0_0.xci">
-          <Proxy FileSetName="board_axi_request_gen_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axi_request_proxy_0_0/board_axi_request_proxy_0_0.xci">
-          <Proxy FileSetName="board_axi_request_proxy_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_util_ds_buf_0_0/board_util_ds_buf_0_0.xci">
           <Proxy FileSetName="board_util_ds_buf_0_0"/>
         </CompFileExtendedInfo>
@@ -257,6 +242,21 @@
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axi_gpio_0_0/board_axi_gpio_0_0.xci">
           <Proxy FileSetName="board_axi_gpio_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axis_switch_0_0/board_axis_switch_0_0.xci">
+          <Proxy FileSetName="board_axis_switch_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axis_register_slice_0_0/board_axis_register_slice_0_0.xci">
+          <Proxy FileSetName="board_axis_register_slice_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_event_reporter_0_1/board_event_reporter_0_1.xci">
+          <Proxy FileSetName="board_event_reporter_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axi_request_gen_0_0/board_axi_request_gen_0_0.xci">
+          <Proxy FileSetName="board_axi_request_gen_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axi_request_proxy_0_0/board_axi_request_proxy_0_0.xci">
+          <Proxy FileSetName="board_axi_request_proxy_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/board/hdl/board_wrapper.v">
@@ -755,7 +755,9 @@
     </Run>
     <Run Id="board_axi_request_proxy_0_0_synth_1" Type="Ft3:Synth" SrcSet="board_axi_request_proxy_0_0" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_axi_request_proxy_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_axi_request_proxy_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
@@ -1240,7 +1242,9 @@
     </Run>
     <Run Id="board_axi_request_proxy_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_axi_request_proxy_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="board_axi_request_proxy_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_axi_request_proxy_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
