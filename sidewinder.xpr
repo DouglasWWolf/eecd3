@@ -237,20 +237,11 @@
         <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_row_complete_cdc_1/board_row_complete_cdc_1.xci">
           <Proxy FileSetName="board_row_complete_cdc_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_system_ila_0_10/board_system_ila_0_10.xci">
-          <Proxy FileSetName="board_system_ila_0_10"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_system_ila_0_11/board_system_ila_0_11.xci">
-          <Proxy FileSetName="board_system_ila_0_11"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axis_consumer_0_0/board_axis_consumer_0_0.xci">
           <Proxy FileSetName="board_axis_consumer_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axi_gpio_0_0/board_axi_gpio_0_0.xci">
           <Proxy FileSetName="board_axi_gpio_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_smartconnect_0_0/board_smartconnect_0_0.xci">
-          <Proxy FileSetName="board_smartconnect_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="board.bd" FileRelPathName="ip/board_axis_switch_0_0/board_axis_switch_0_0.xci">
           <Proxy FileSetName="board_axis_switch_0_0"/>
@@ -481,24 +472,6 @@
     <FileSet Name="board_axi_request_proxy_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/board_axi_request_proxy_0_0" RelGenDir="$PGENDIR/board_axi_request_proxy_0_0">
       <Config>
         <Option Name="TopModule" Val="board_axi_request_proxy_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="board_system_ila_0_10" Type="BlockSrcs" RelSrcDir="$PSRCDIR/board_system_ila_0_10" RelGenDir="$PGENDIR/board_system_ila_0_10">
-      <Config>
-        <Option Name="TopModule" Val="board_system_ila_0_10"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="board_system_ila_0_11" Type="BlockSrcs" RelSrcDir="$PSRCDIR/board_system_ila_0_11" RelGenDir="$PGENDIR/board_system_ila_0_11">
-      <Config>
-        <Option Name="TopModule" Val="board_system_ila_0_11"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="board_smartconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/board_smartconnect_0_0" RelGenDir="$PGENDIR/board_smartconnect_0_0">
-      <Config>
-        <Option Name="TopModule" Val="board_smartconnect_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -781,33 +754,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="board_axi_request_proxy_0_0_synth_1" Type="Ft3:Synth" SrcSet="board_axi_request_proxy_0_0" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_axi_request_proxy_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_axi_request_proxy_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="board_system_ila_0_10_synth_1" Type="Ft3:Synth" SrcSet="board_system_ila_0_10" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_system_ila_0_10" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_system_ila_0_10_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="board_system_ila_0_11_synth_1" Type="Ft3:Synth" SrcSet="board_system_ila_0_11" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_system_ila_0_11" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_system_ila_0_11_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="board_smartconnect_0_0_synth_1" Type="Ft3:Synth" SrcSet="board_smartconnect_0_0" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_smartconnect_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_smartconnect_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
@@ -1293,57 +1239,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="board_axi_request_proxy_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_axi_request_proxy_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="board_axi_request_proxy_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_axi_request_proxy_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="board_system_ila_0_10_impl_1" Type="Ft2:EntireDesign" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_system_ila_0_10" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="board_system_ila_0_10_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_system_ila_0_10_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="board_system_ila_0_11_impl_1" Type="Ft2:EntireDesign" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_system_ila_0_11" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="board_system_ila_0_11_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_system_ila_0_11_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="board_smartconnect_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu19eg-ffvc1760-2-i" ConstrsSet="board_smartconnect_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="board_smartconnect_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/board_smartconnect_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>

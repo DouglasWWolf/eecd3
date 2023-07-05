@@ -55,7 +55,7 @@ levelinfo -pg 1 0 180 520 800 940
 pagesize -pg 1 -db -bbox -sgen -190 0 1120 560
 ",
    "No Loops_ScaleFactor":"1.0",
-   "No Loops_TopLeft":"-275,-86",
+   "No Loops_TopLeft":"-358,-98",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
 preplace port AXI_STREAM_TX -pg 1 -lvl 0 -x 0 -y 240 -defaultsOSRD

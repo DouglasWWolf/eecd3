@@ -24,13 +24,15 @@
           "rx_reset_inverter": "",
           "tx_width_converter": "",
           "eth_reset_mgr": "",
-          "tx_reset_inverter": ""
+          "tx_reset_inverter": "",
+          "constant_1": ""
         },
         "ethernet_0": {
           "qsfp_ethernet": "",
           "tx_width_converter": "",
           "eth_reset_mgr": "",
-          "tx_reset_inverter": ""
+          "tx_reset_inverter": "",
+          "constant_1": ""
         }
       },
       "request_button": "",
@@ -393,6 +395,9 @@
                   "GT_REF_CLK_FREQ": {
                     "value": "322.265625"
                   },
+                  "INCLUDE_RS_FEC": {
+                    "value": "1"
+                  },
                   "INS_LOSS_NYQ": {
                     "value": "20"
                   },
@@ -653,6 +658,12 @@
                     "value": "1"
                   }
                 }
+              },
+              "constant_1": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "board_xlconstant_0_2",
+                "xci_path": "ip/board_xlconstant_0_2/board_xlconstant_0_2.xci",
+                "inst_hier_path": "qsfp_data/ethernet_1/constant_1"
               }
             },
             "interface_nets": {
@@ -688,6 +699,13 @@
               }
             },
             "nets": {
+              "constant_1_dout": {
+                "ports": [
+                  "constant_1/dout",
+                  "qsfp_ethernet/ctl_rx_rsfec_enable",
+                  "qsfp_ethernet/ctl_tx_rsfec_enable"
+                ]
+              },
               "eth_reset_mgr_0_rx_enable": {
                 "ports": [
                   "eth_reset_mgr/rx_enable",
@@ -842,6 +860,9 @@
                   },
                   "GT_REF_CLK_FREQ": {
                     "value": "322.265625"
+                  },
+                  "INCLUDE_RS_FEC": {
+                    "value": "1"
                   },
                   "INS_LOSS_NYQ": {
                     "value": "20"
@@ -1089,6 +1110,12 @@
                     "value": "1"
                   }
                 }
+              },
+              "constant_1": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "board_xlconstant_0_1",
+                "xci_path": "ip/board_xlconstant_0_1/board_xlconstant_0_1.xci",
+                "inst_hier_path": "qsfp_data/ethernet_0/constant_1"
               }
             },
             "interface_nets": {
@@ -1124,6 +1151,13 @@
               }
             },
             "nets": {
+              "constant_1_dout": {
+                "ports": [
+                  "constant_1/dout",
+                  "qsfp_ethernet/ctl_rx_rsfec_enable",
+                  "qsfp_ethernet/ctl_tx_rsfec_enable"
+                ]
+              },
               "eth_reset_mgr_0_rx_enable": {
                 "ports": [
                   "eth_reset_mgr/rx_enable",

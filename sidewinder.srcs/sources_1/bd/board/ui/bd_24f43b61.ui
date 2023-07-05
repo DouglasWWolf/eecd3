@@ -1,47 +1,49 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-158,-46",
+   "Default View_TopLeft":"-181,-33",
    "DisplayTieOff":"1",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port qsfp_gt -pg 1 -lvl 4 -x 1050 -y 230 -defaultsOSRD
+preplace port qsfp_gt -pg 1 -lvl 5 -x 1230 -y 250 -defaultsOSRD
 preplace port qsfp1_clk -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
-preplace port axis_rx -pg 1 -lvl 4 -x 1050 -y 250 -defaultsOSRD
-preplace port axis_tx -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port port-id_tx_clk -pg 1 -lvl 4 -x 1050 -y 350 -defaultsOSRD
+preplace port axis_rx -pg 1 -lvl 5 -x 1230 -y 270 -defaultsOSRD
+preplace port axis_tx -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port port-id_tx_clk -pg 1 -lvl 5 -x 1230 -y 370 -defaultsOSRD
 preplace port port-id_reset_in -pg 1 -lvl 0 -x 0 -y 350 -defaultsOSRD
 preplace port port-id_init_clk -pg 1 -lvl 0 -x 0 -y 330 -defaultsOSRD
-preplace port port-id_rx_clk_out -pg 1 -lvl 4 -x 1050 -y 490 -defaultsOSRD
-preplace port port-id_channel_up -pg 1 -lvl 4 -x 1050 -y 330 -defaultsOSRD
-preplace portBus rx_resetn -pg 1 -lvl 4 -x 1050 -y 430 -defaultsOSRD
-preplace portBus tx_resetn -pg 1 -lvl 4 -x 1050 -y 550 -defaultsOSRD
-preplace inst qsfp_ethernet -pg 1 -lvl 2 -x 530 -y 390 -defaultsOSRD
-preplace inst rx_reset_inverter -pg 1 -lvl 3 -x 880 -y 430 -defaultsOSRD
-preplace inst tx_width_converter -pg 1 -lvl 1 -x 170 -y 70 -defaultsOSRD
+preplace port port-id_rx_clk_out -pg 1 -lvl 5 -x 1230 -y 530 -defaultsOSRD
+preplace port port-id_channel_up -pg 1 -lvl 5 -x 1230 -y 350 -defaultsOSRD
+preplace portBus rx_resetn -pg 1 -lvl 5 -x 1230 -y 470 -defaultsOSRD
+preplace portBus tx_resetn -pg 1 -lvl 5 -x 1230 -y 590 -defaultsOSRD
+preplace inst qsfp_ethernet -pg 1 -lvl 3 -x 690 -y 420 -defaultsOSRD
+preplace inst rx_reset_inverter -pg 1 -lvl 4 -x 1060 -y 470 -defaultsOSRD
+preplace inst tx_width_converter -pg 1 -lvl 1 -x 170 -y 80 -defaultsOSRD
 preplace inst eth_reset_mgr -pg 1 -lvl 1 -x 170 -y 350 -defaultsOSRD
-preplace inst tx_reset_inverter -pg 1 -lvl 3 -x 880 -y 550 -defaultsOSRD
-preplace netloc eth_reset_mgr_0_rx_enable 1 1 1 N 330
-preplace netloc eth_reset_mgr_0_tx_enable 1 1 1 300 270n
-preplace netloc eth_reset_mgr_0_tx_send_rfi 1 1 1 320 290n
-preplace netloc master_reset_Res 1 0 2 20 430 310
-preplace netloc qsfp1_ethernet_gt_rxusrclk2 1 1 3 320 630 730 490 NJ
-preplace netloc qsfp1_ethernet_gt_txusrclk2 1 0 4 40 140 NJ 140 730 350 NJ
-preplace netloc qsfp1_ethernet_stat_rx_aligned 1 0 3 40 150 NJ 150 720
-preplace netloc qsfp1_ethernet_stat_rx_status 1 2 2 NJ 330 NJ
-preplace netloc qsfp1_ethernet_usr_rx_reset 1 2 1 720J 430n
-preplace netloc qsfp1_ethernet_usr_tx_reset 1 2 1 NJ 550
-preplace netloc rx1_reset_inverter_Res 1 3 1 NJ 430
-preplace netloc system_clock_IBUF_OUT 1 0 2 30 440 300
-preplace netloc tx1_reset_inverter_Res 1 3 1 NJ 550
-preplace netloc Conn1 1 2 2 NJ 230 NJ
-preplace netloc Conn2 1 0 1 NJ 60
-preplace netloc qsfp1_clk_1 1 0 2 NJ 210 NJ
-preplace netloc qsfp1_ethernet_axis_rx 1 2 2 NJ 250 NJ
-preplace netloc tx1_width_converter_AXIS_TX 1 1 1 300 70n
-levelinfo -pg 1 0 170 530 880 1050
-pagesize -pg 1 -db -bbox -sgen -120 0 1200 640
+preplace inst tx_reset_inverter -pg 1 -lvl 4 -x 1060 -y 590 -defaultsOSRD
+preplace inst constant_1 -pg 1 -lvl 2 -x 390 -y 390 -defaultsOSRD
+preplace netloc eth_reset_mgr_0_rx_enable 1 1 2 N 330 N
+preplace netloc eth_reset_mgr_0_tx_enable 1 1 2 300 270 N
+preplace netloc eth_reset_mgr_0_tx_send_rfi 1 1 2 310 290 N
+preplace netloc master_reset_Res 1 0 3 20 450 N 450 480
+preplace netloc qsfp1_ethernet_gt_rxusrclk2 1 2 3 490 140 900 530 NJ
+preplace netloc qsfp1_ethernet_gt_txusrclk2 1 0 5 40 10 NJ 10 N 10 890 370 NJ
+preplace netloc qsfp1_ethernet_stat_rx_aligned 1 0 4 40 150 NJ 150 N 150 880
+preplace netloc qsfp1_ethernet_stat_rx_status 1 3 2 NJ 350 NJ
+preplace netloc qsfp1_ethernet_usr_rx_reset 1 3 1 910J 470n
+preplace netloc qsfp1_ethernet_usr_tx_reset 1 3 1 NJ 590
+preplace netloc rx1_reset_inverter_Res 1 4 1 NJ 470
+preplace netloc system_clock_IBUF_OUT 1 0 3 30 460 N 460 470
+preplace netloc tx1_reset_inverter_Res 1 4 1 NJ 590
+preplace netloc constant_1_dout 1 2 1 470 390n
+preplace netloc Conn1 1 3 2 NJ 250 NJ
+preplace netloc Conn2 1 0 1 NJ 70
+preplace netloc qsfp1_clk_1 1 0 3 NJ 210 NJ 210 N
+preplace netloc qsfp1_ethernet_axis_rx 1 3 2 NJ 270 NJ
+preplace netloc tx1_width_converter_AXIS_TX 1 1 2 N 80 470
+levelinfo -pg 1 0 170 390 690 1060 1230
+pagesize -pg 1 -db -bbox -sgen -120 0 1380 690
 "
 }
 0
